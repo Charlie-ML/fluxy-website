@@ -19,8 +19,18 @@ const revealObserver = new IntersectionObserver(
       }
     })
   },
-  { threshold: 0.1 }
+  { threshold: window.innerWidth < 768 ? 0.05 : 0.1 }
 )
+
+// On mobile, halve any inline transition-delay values for snappier feel
+if (window.innerWidth < 768) {
+  document.querySelectorAll('[style*="transition-delay"]').forEach(el => {
+    const match = el.style.transitionDelay.match(/([\d.]+)ms/)
+    if (match) {
+      el.style.transitionDelay = `${Math.round(parseFloat(match[1]) * 0.5)}ms`
+    }
+  })
+}
 
 document.querySelectorAll('[class*="reveal"]').forEach(el => {
   // Don't observe containers that just hold staggered children
@@ -52,7 +62,7 @@ if (counterEl) {
 }
 
 function animateCounter(el, target) {
-  const duration = 2000
+  const duration = window.innerWidth < 768 ? 1000 : 2000
   const start = performance.now()
 
   function step(now) {
