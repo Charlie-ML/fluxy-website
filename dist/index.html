@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluxy — Mathematics Practice, Perfected</title>
+  <meta name="description" content="Master mathematics with exact symbolic math, Elo-rated competitions, and daily streaks. Fluxy is the iOS app that makes maths practice precise and competitive." />
+
+  <meta property="og:title" content="Fluxy — Mathematics Practice, Perfected" />
+  <meta property="og:description" content="Exact symbolic math. Elo-rated competitions. Daily streaks. The iOS app for students who demand precision." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/fluxy_logo.jpg" />
+
+  <link rel="icon" type="image/jpeg" href="/fluxy_logo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/assets/index-B0-n6dJI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CHp2VqoL.css">
+</head>
+<body class="font-sans antialiased">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-fluxy-bg/80 backdrop-blur-xl border-b border-fluxy-border-light">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <img src="/fluxy_logo.jpg" alt="Fluxy" class="w-8 h-8 rounded-lg shadow-sm" />
+        <span class="text-fluxy-heading font-bold text-lg tracking-tight">Fluxy</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Features</a>
+        <a href="#competition" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Competition</a>
+        <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Streaks</a>
+        <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Pricing</a>
+        <a href="#download" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-fluxy-heading/90 transition">Download</a>
+      </div>
+
+      <button id="nav-toggle" class="md:hidden text-fluxy-heading" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-fluxy-bg/98 border-t border-fluxy-border-light px-6">
+      <div class="flex flex-col gap-3 py-4">
+        <a href="#features" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Features</a>
+        <a href="#competition" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Competition</a>
+        <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Streaks</a>
+        <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Pricing</a>
+        <a href="#download" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2.5 rounded-full text-center hover:bg-fluxy-heading/90 transition mt-1">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
+    <div class="reveal-scale">
+      <img src="/fluxy_logo.jpg" alt="Fluxy Logo" class="w-24 h-24 md:w-32 md:h-32 rounded-[1.75rem] shadow-lg shadow-amber-200/40 mx-auto mb-12" />
+    </div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-fluxy-heading leading-[1.08] tracking-tight mb-7">
+      <span class="reveal inline-block" style="transition-delay: 100ms">Mathematics Practice,</span><br />
+      <span class="reveal inline-block gradient-text" style="transition-delay: 280ms">Perfected</span>
+    </h1>
+
+    <p class="reveal text-lg md:text-xl text-fluxy-text max-w-lg mb-14 leading-relaxed" style="transition-delay: 420ms">
+      Exact symbolic math. No decimals. No approximations.<br class="hidden sm:block" /> Just precision.
+    </p>
+
+    <!-- Hero KaTeX -->
+    <div class="reveal-scale mb-16 katex-hero" style="transition-delay: 560ms">
+      <div class="bg-fluxy-equation-bg rounded-2xl px-8 py-5 glow-pulse equation-accent">
+        <div data-katex="\frac{d}{dx}\!\left[x^3\right] = 3x^2" data-display class="text-white"></div>
+      </div>
+    </div>
+
+    <!-- App Store CTA -->
+    <a href="#download" class="reveal inline-flex items-center gap-3 bg-fluxy-heading text-white font-semibold text-base px-7 py-3.5 rounded-full shadow-lg shadow-stone-900/15 hover:shadow-xl hover:bg-fluxy-heading/90 transition-all mb-20" style="transition-delay: 680ms">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+
+    <div class="bounce-down text-fluxy-muted">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="py-28 md:py-36 px-6 section-alt">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-20 reveal">
+        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Six Topics. Infinite Practice.</h2>
+        <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed">Every answer is exact symbolic math — never a decimal approximation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 reveal-stagger">
+
+        <!-- Numerical Calculations -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Numerical Calculations</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Lightning-fast mental arithmetic with instant feedback.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="48 \times 17 = \;?" data-display class="text-white"></div>
+          </div>
+        </div>
+
+        <!-- Trig Exact Values -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><path d="M4 20 L20 20 L4 6 Z" fill="none" /><path d="M7 20 A3 3 0 0 1 9 17" fill="none" /><text x="10" y="18" font-size="6" font-style="italic" fill="#B45309" stroke="none" font-family="serif">&#x3B8;</text></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Trig Exact Values</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Recall exact trigonometric values at all standard angles.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="\sin\!\bigl(\tfrac{\pi}{3}\bigr) = \tfrac{\sqrt{3}}{2}" data-display class="text-white"></div>
+          </div>
+        </div>
+
+        <!-- Differentiation -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><path d="M4 18 Q10 18 12 12 Q14 6 20 4" fill="none" /><line x1="8" y1="18" x2="18" y2="4" stroke-dasharray="2 2" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Differentiation</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Differentiate polynomials, trig functions, and more.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="\tfrac{d}{dx}\!\bigl[5x^3 - 2x\bigr] = 15x^2 - 2" data-display class="text-white"></div>
+          </div>
+        </div>
+
+        <!-- Antidifferentiation -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><path d="M10 4 Q8 4 8 8 L8 16 Q8 20 10 20" fill="none" stroke-width="2.2" /><path d="M4 18 Q10 14 12 12 Q14 10 20 6" fill="none" /><line x1="4" y1="18" x2="20" y2="18" stroke-dasharray="2 2" opacity="0.4" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Antidifferentiation</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Find antiderivatives with exact symbolic results.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="\textstyle\int \sin(x)\,dx = -\cos(x) + C" data-display class="text-white"></div>
+          </div>
+        </div>
+
+        <!-- Complex Numbers -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" /><line x1="12" y1="5" x2="12" y2="19" opacity="0.3" /><line x1="5" y1="12" x2="19" y2="12" opacity="0.3" /><line x1="12" y1="12" x2="17" y2="7" /><circle cx="17" cy="7" r="1.5" fill="#B45309" stroke="none" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Complex Numbers</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Convert between Cartesian and polar form instantly.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="3 + 3i = 3\!\sqrt{2}\;\text{cis}\!\bigl(\tfrac{\pi}{4}\bigr)" data-display class="text-white"></div>
+          </div>
+        </div>
+
+        <!-- Log & Index Laws -->
+        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+          <div class="icon-circle mb-5">
+            <svg viewBox="0 0 24 24"><rect x="5" y="14" width="3" height="6" rx="0.5" /><rect x="10.5" y="10" width="3" height="10" rx="0.5" /><rect x="16" y="5" width="3" height="15" rx="0.5" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Log &amp; Index Laws</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Master logarithmic and index law manipulation.</p>
+          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+            <div data-katex="\log_2\!8 + \log_2\!4 = \log_2\!32 = 5" data-display class="text-white"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPETITION MODE ===== -->
+  <section id="competition" class="py-28 md:py-36 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Text -->
+        <div>
+          <div class="reveal">
+            <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Competition</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">
+              Compete. Climb.<br /><span class="gradient-text">Conquer.</span>
+            </h2>
+            <p class="text-fluxy-text text-lg mb-10 leading-relaxed">Elo-rated head-to-head competitions where every point matters.</p>
+          </div>
+
+          <div class="space-y-7 stagger-bullets">
+            <div class="reveal-left flex items-start gap-4">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Matched by skill</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Elo-based matchmaking pairs you with players at your level.</p>
+              </div>
+            </div>
+
+            <div class="reveal-left flex items-start gap-4">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 3" /></svg>
+              </div>
+              <div>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Same question, same clock</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Both players see identical questions simultaneously. Speed and accuracy win.</p>
+              </div>
+            </div>
+
+            <div class="reveal-left flex items-start gap-4">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" /></svg>
+              </div>
+              <div>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Real stakes</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Win Elo points. Climb the leaderboard. Challenge your friends.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Versus visual -->
+        <div class="reveal-right flex justify-center">
+          <div class="w-full max-w-sm space-y-3">
+            <!-- Player 1 -->
+            <div class="versus-card rounded-2xl p-4 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-sm">A</div>
+              <div class="flex-1">
+                <div class="text-fluxy-heading font-semibold text-sm">Player A</div>
+                <div class="text-fluxy-muted text-xs">Elo 1247</div>
+              </div>
+              <div class="text-amber-600 font-bold text-xl">3</div>
+            </div>
+
+            <!-- Shared question -->
+            <div class="bg-fluxy-equation-bg rounded-2xl p-5 text-center katex-card shadow-lg equation-accent">
+              <p class="text-white/50 text-xs uppercase tracking-wider mb-3 font-medium">Round 4 of 5</p>
+              <div class="katex-equation-box">
+                <div data-katex="\tfrac{d}{dx}\!\bigl[\tan(x)\bigr] = \;?" data-display class="text-white"></div>
+              </div>
+              <div class="flex items-center justify-center gap-1.5 mt-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+              </div>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="versus-card rounded-2xl p-4 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm">B</div>
+              <div class="flex-1">
+                <div class="text-fluxy-heading font-semibold text-sm">Player B</div>
+                <div class="text-fluxy-muted text-xs">Elo 1183</div>
+              </div>
+              <div class="text-blue-500 font-bold text-xl">2</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STREAKS & PROGRESS ===== -->
+  <section id="streaks" class="py-28 md:py-36 px-6 section-alt">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-20 reveal">
+        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Streaks</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Build Your Streak. <span class="gradient-text">Build Your Skills.</span></h2>
+        <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed">Complete daily question targets to grow your streak. Miss a day and it resets — unless you have a life.</p>
+      </div>
+
+      <!-- Streak counter -->
+      <div class="text-center mb-20 reveal-zoom">
+        <div class="inline-flex flex-col items-center">
+          <div class="text-7xl md:text-8xl font-extrabold text-fluxy-heading leading-none tabular-nums" data-count-to="47">0</div>
+          <p class="text-fluxy-muted text-base font-medium mt-2">day streak</p>
+        </div>
+      </div>
+
+      <!-- Streak levels -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7 reveal-stagger">
+        <!-- Level 1 -->
+        <div class="reveal-scale bg-fluxy-surface border border-fluxy-border rounded-2xl p-8 text-center shadow-sm">
+          <div class="flame-icon justify-center mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-bold text-lg mb-2">Level 1</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">20 questions in any one topic per day.</p>
+          <span class="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1 rounded-full">Free + Premium</span>
+        </div>
+
+        <!-- Level 2 -->
+        <div class="reveal-scale bg-fluxy-surface border border-fluxy-border rounded-2xl p-8 text-center shadow-sm">
+          <div class="flame-icon justify-center mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-bold text-lg mb-2">Level 2</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">20 questions in 3 different topics per day.</p>
+          <span class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-xs font-semibold px-3 py-1 rounded-full">Premium</span>
+        </div>
+
+        <!-- Level 3 -->
+        <div class="reveal-scale bg-fluxy-surface border border-fluxy-border rounded-2xl p-8 text-center shadow-sm">
+          <div class="flame-icon justify-center mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-2-7-5.5-7-10 0-3 1.5-5 3-6.5 0.5 2 2 3.5 3 3.5 0-3 1.5-6.5 4-9 0.5 2.5 2 4 3.5 5.5C20 7.5 21 10 21 12c0 4.5-3 8-9 10z" /><path d="M12 22c-1.5-1-3-2.5-3-5 0-1.5 1-3 3-4 2 1 3 2.5 3 4 0 2.5-1.5 4-3 5z" /></svg>
+          </div>
+          <h3 class="text-fluxy-heading font-bold text-lg mb-2">Level 3</h3>
+          <p class="text-fluxy-text text-sm mb-5 leading-relaxed">20 questions in all 6 topics per day. The ultimate challenge.</p>
+          <span class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-xs font-semibold px-3 py-1 rounded-full">Premium</span>
+        </div>
+      </div>
+
+      <!-- Streak lives -->
+      <div class="reveal text-center mt-12">
+        <div class="inline-flex items-center gap-2.5 bg-fluxy-surface border border-fluxy-border rounded-full px-5 py-2.5 shadow-sm">
+          <svg class="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <p class="text-fluxy-text text-sm">Premium members get <strong class="text-fluxy-heading">2 lives/month</strong> to protect their streak.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="py-28 md:py-36 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-20 reveal">
+        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-4">Free to Start. <span class="gradient-text">Premium to Master.</span></h2>
+      </div>
+
+      <!-- Pricing cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-3xl mx-auto reveal-stagger">
+
+        <!-- Free plan -->
+        <div class="reveal-scale bg-fluxy-surface border border-fluxy-border rounded-2xl p-8 shadow-sm">
+          <h3 class="text-fluxy-heading font-bold text-xl mb-1">Free</h3>
+          <p class="text-fluxy-muted text-sm mb-6">Get started with the essentials</p>
+
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold text-fluxy-heading">$0</span>
+          </div>
+
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-fluxy-text">50 Numerical Calculations / day</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-fluxy-text">10 questions / day per other topic</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-fluxy-text">3 daily competitions</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-fluxy-text">Level 1 streak</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              <span class="text-fluxy-muted">No streak lives</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              <span class="text-fluxy-muted">Basic profile only</span>
+            </li>
+          </ul>
+
+          <a href="#download" class="block text-center bg-fluxy-surface-alt text-fluxy-heading font-semibold text-sm py-3 rounded-xl border border-fluxy-border hover:bg-fluxy-border-light transition">
+            Get Started Free
+          </a>
+        </div>
+
+        <!-- Premium plan -->
+        <div class="reveal-scale bg-fluxy-heading rounded-2xl p-8 relative premium-glow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-fluxy-heading text-xs font-bold px-4 py-1 rounded-full shadow-sm">MOST POPULAR</div>
+
+          <h3 class="text-white font-bold text-xl mb-1">Premium</h3>
+          <p class="text-stone-400 text-sm mb-6">Unlimited practice, full access</p>
+
+          <!-- Price with toggle -->
+          <div class="mb-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-stone-400 text-sm font-medium" data-price="monthly">Monthly</span>
+              <span class="text-white text-sm font-medium hidden" data-price="yearly">Monthly</span>
+              <div id="pricing-toggle" class="pricing-toggle"></div>
+              <span class="text-stone-400 text-sm font-medium" data-price="monthly">Yearly</span>
+              <span class="text-white text-sm font-medium hidden" data-price="yearly">Yearly</span>
+            </div>
+            <div data-price="monthly">
+              <span class="text-4xl font-extrabold text-white">$7.99</span>
+              <span class="text-stone-400 text-sm"> / month</span>
+            </div>
+            <div data-price="yearly" class="hidden">
+              <span class="text-4xl font-extrabold text-white">$59.99</span>
+              <span class="text-stone-400 text-sm"> / year</span>
+              <p class="text-amber-400 text-sm font-medium mt-1">Save 37% — just $5.00/month</p>
+            </div>
+            <p class="text-stone-500 text-xs mt-1.5">Prices in AUD</p>
+          </div>
+
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300"><strong class="text-white">Unlimited</strong> questions in all topics</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300"><strong class="text-white">Unlimited</strong> daily competitions</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300">Streak levels <strong class="text-white">1, 2 &amp; 3</strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300"><strong class="text-white">2 streak lives</strong> per month</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300">Custom <strong class="text-white">colour themes</strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300">Full <strong class="text-white">profile customisation</strong></span>
+            </li>
+          </ul>
+
+          <a href="#download" class="block text-center bg-amber-400 text-fluxy-heading font-bold text-sm py-3 rounded-xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/20">
+            Go Premium
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section id="download" class="py-28 md:py-36 px-6 section-alt">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-8">Ready to Level Up Your Maths?</h2>
+      </div>
+
+      <div class="reveal-scale mb-12 katex-hero">
+        <div class="inline-block bg-fluxy-equation-bg rounded-2xl px-8 py-5 shadow-lg glow-pulse equation-accent">
+          <div data-katex="\displaystyle\int_0^{\pi} \!\sin(x)\,dx = 2" data-display class="text-white"></div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay: 200ms">
+        <a href="#" class="inline-flex items-center gap-3 bg-fluxy-heading text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-stone-900/15 hover:shadow-xl hover:bg-fluxy-heading/90 transition-all mb-6">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </a>
+        <p class="text-fluxy-muted text-base">Join students mastering exact mathematics daily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-fluxy-border-light py-10 px-6 reveal">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-fluxy-muted text-sm">&copy; 2026 Fluxy. Built with precision.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Privacy Policy</a>
+        <a href="#" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
