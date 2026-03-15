@@ -115,7 +115,7 @@ Streaks require completing a daily question quota. They reset to zero if the quo
 ### Competition Mode
 
 - Timed head-to-head rounds between two users (or small groups — TBD)
-- Users are matched by Elo rating where possible
+- **Skill-based matchmaking (SBMM)** — users are paired by Elo proximity; search radius expands gradually if no close match is available, falling back to a bot as a last resort
 - Questions drawn from any topic; both players see the same question simultaneously
 - Winner earns Elo; loser loses Elo (standard Elo formula, K-factor TBD)
 - Free users: 3 competitions per day; Premium: unlimited
@@ -227,7 +227,7 @@ The project requires five major phases before the full product vision is complet
 ### Phase 5 — Competition Mode
 *Goal: real-time Elo-rated head-to-head competitions.*
 
-1. **Matchmaking** — user taps "Compete"; `CompetitionService` writes a matchmaking document to Firestore; a Firebase Cloud Function pairs users by Elo proximity within a timeout window; falls back to a bot/random opponent if no match found
+1. **Skill-based matchmaking (SBMM)** — user taps "Compete"; `CompetitionService` writes a matchmaking document to Firestore; a Firebase Cloud Function pairs users by Elo proximity within a timeout window, expanding the search radius gradually if no close match is found; falls back to a bot/random opponent as a last resort. SBMM is a core feature — matches should always feel competitive and appropriately challenging, not one-sided
 2. **Competition session** — Firestore document tracks: both player IDs, current question, each player's answer + timestamp, round number (e.g. best of 5 questions), scores
 3. **`CompetitionView`** — real-time listener on competition document; shows shared question with countdown timer; both players answer simultaneously; shows who answered correctly/faster
 4. **Elo update** — Firebase Cloud Function fires on competition completion; updates both users' `eloRating` in Firestore using standard Elo formula (K = 32 initially)

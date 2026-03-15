@@ -136,6 +136,7 @@ body {
 .stagger-bullets > [class*="reveal"]:nth-child(1) { transition-delay: 0ms; }
 .stagger-bullets > [class*="reveal"]:nth-child(2) { transition-delay: 150ms; }
 .stagger-bullets > [class*="reveal"]:nth-child(3) { transition-delay: 300ms; }
+.stagger-bullets > [class*="reveal"]:nth-child(4) { transition-delay: 450ms; }
 
 /* ── Topic card ── */
 .topic-card {
@@ -345,6 +346,7 @@ body {
   .stagger-bullets > [class*="reveal"]:nth-child(1) { transition-delay: 0ms; }
   .stagger-bullets > [class*="reveal"]:nth-child(2) { transition-delay: 80ms; }
   .stagger-bullets > [class*="reveal"]:nth-child(3) { transition-delay: 160ms; }
+  .stagger-bullets > [class*="reveal"]:nth-child(4) { transition-delay: 240ms; }
 
   /* Disable hover-only effects that cause sticky states on touch */
   .topic-card:hover {
@@ -352,4 +354,34 @@ body {
     transform: none;
     background: var(--color-fluxy-surface);
   }
+}
+
+/* ── Waitlist form ── */
+.contact-toggle {
+  color: var(--color-fluxy-muted);
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.contact-toggle.active {
+  color: var(--color-fluxy-heading);
+  background: var(--color-fluxy-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.waitlist-form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.waitlist-form.submitted .waitlist-success {
+  display: block;
+}
+
+.waitlist-form.submitted button[type="submit"],
+.waitlist-form.submitted .space-y-3,
+.waitlist-form.submitted h3,
+.waitlist-form.submitted > p:first-of-type {
+  display: none;
 }

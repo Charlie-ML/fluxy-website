@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fluxy — Mathematics Practice, Perfected</title>
+  <title>Fluxy — Mathematics Practice Perfected</title>
   <meta name="description" content="Master mathematics with exact symbolic math, Elo-rated competitions, and daily streaks. Fluxy is the iOS app that makes maths practice precise and competitive." />
 
-  <meta property="og:title" content="Fluxy — Mathematics Practice, Perfected" />
+  <meta property="og:title" content="Fluxy — Mathematics Practice Perfected" />
   <meta property="og:description" content="Exact symbolic math. Elo-rated competitions. Daily streaks. The iOS app for students who demand precision." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/fluxy_logo.jpg" />
@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-B0-n6dJI.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CHp2VqoL.css">
+  <script type="module" crossorigin src="/assets/index-C1IAoAJ3.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Bw1q9ClD.css">
 </head>
 <body class="font-sans antialiased">
 
@@ -34,7 +34,8 @@
         <a href="#competition" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Competition</a>
         <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Streaks</a>
         <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Pricing</a>
-        <a href="#download" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-fluxy-heading/90 transition">Download</a>
+        <a href="#contact" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Contact</a>
+        <a href="#waitlist" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-fluxy-heading/90 transition">Join Waitlist</a>
       </div>
 
       <button id="nav-toggle" class="md:hidden text-fluxy-heading" aria-label="Toggle menu" aria-expanded="false">
@@ -50,25 +51,44 @@
         <a href="#competition" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Competition</a>
         <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Streaks</a>
         <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Pricing</a>
-        <a href="#download" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2.5 rounded-full text-center hover:bg-fluxy-heading/90 transition mt-1">Download</a>
+        <a href="#contact" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Contact</a>
+        <a href="#waitlist" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2.5 rounded-full text-center hover:bg-fluxy-heading/90 transition mt-1">Join Waitlist</a>
       </div>
     </div>
   </nav>
 
+  <!-- ===== COMING SOON BANNER ===== -->
+  <div class="fixed top-16 left-0 right-0 z-40 coming-soon-banner">
+    <div class="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 py-2.5 px-6 text-center">
+      <p class="text-fluxy-heading text-sm font-semibold tracking-wide">
+        Coming to iOS in 2026 —
+        <a href="#waitlist" class="underline underline-offset-2 hover:no-underline">join the beta waitlist</a>
+        <span class="inline-block ml-2 bg-fluxy-heading text-amber-400 text-xs font-bold px-2.5 py-0.5 rounded-full">2026</span>
+      </p>
+    </div>
+  </div>
+
   <!-- ===== HERO ===== -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-16">
     <div class="reveal-scale">
       <img src="/fluxy_logo.jpg" alt="Fluxy Logo" class="w-24 h-24 md:w-32 md:h-32 rounded-[1.75rem] shadow-lg shadow-amber-200/40 mx-auto mb-12" />
     </div>
 
     <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-fluxy-heading leading-[1.08] tracking-tight mb-7">
-      <span class="reveal inline-block" style="transition-delay: 100ms">Mathematics Practice,</span><br />
+      <span class="reveal inline-block" style="transition-delay: 100ms">Mathematics Practice</span><br />
       <span class="reveal inline-block gradient-text" style="transition-delay: 280ms">Perfected</span>
     </h1>
 
-    <p class="reveal text-lg md:text-xl text-fluxy-text max-w-lg mb-14 leading-relaxed" style="transition-delay: 420ms">
-      Exact symbolic math. No decimals. No approximations.<br class="hidden sm:block" /> Just precision.
+    <p class="reveal text-lg md:text-xl text-fluxy-text max-w-lg mb-8 leading-relaxed" style="transition-delay: 420ms">
+      Exact symbolic math.<br />
+      No decimals. No approximations.<br />
+      Just precision.
     </p>
+
+    <div class="reveal inline-flex items-center gap-2 bg-fluxy-surface border border-fluxy-border rounded-full px-4 py-2 mb-14 shadow-sm" style="transition-delay: 500ms">
+      <svg class="w-4 h-4 text-fluxy-heading" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="text-fluxy-text text-sm font-medium">Designed exclusively for iOS</span>
+    </div>
 
     <!-- Hero KaTeX -->
     <div class="reveal-scale mb-16 katex-hero" style="transition-delay: 560ms">
@@ -77,11 +97,34 @@
       </div>
     </div>
 
-    <!-- App Store CTA -->
-    <a href="#download" class="reveal inline-flex items-center gap-3 bg-fluxy-heading text-white font-semibold text-base px-7 py-3.5 rounded-full shadow-lg shadow-stone-900/15 hover:shadow-xl hover:bg-fluxy-heading/90 transition-all mb-20" style="transition-delay: 680ms">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Download on the App Store
-    </a>
+    <!-- Waitlist CTA -->
+    <div id="waitlist" class="reveal w-full max-w-md mx-auto" style="transition-delay: 680ms">
+      <form id="hero-waitlist-form" class="waitlist-form bg-fluxy-surface border border-fluxy-border rounded-2xl p-6 shadow-sm">
+        <h3 class="text-fluxy-heading font-bold text-lg mb-1 text-center">Join the Beta Waitlist</h3>
+        <p class="text-fluxy-muted text-sm mb-5 text-center">Be the first to try Fluxy when it launches.</p>
+
+        <div class="space-y-3">
+          <input type="text" name="name" placeholder="Your name" required
+            class="w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+
+          <!-- Contact type toggle -->
+          <div class="flex items-center gap-2 bg-fluxy-bg rounded-xl p-1 border border-fluxy-border">
+            <button type="button" class="contact-toggle active flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="email">Email</button>
+            <button type="button" class="contact-toggle flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="phone">Phone</button>
+          </div>
+
+          <input type="email" name="contact" placeholder="you@email.com" required
+            class="contact-input w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+        </div>
+
+        <button type="submit" class="w-full mt-4 bg-fluxy-heading text-white font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-heading/90 transition shadow-sm">
+          Join the Waitlist
+        </button>
+
+        <p class="waitlist-error hidden text-red-500 text-xs mt-2 text-center"></p>
+        <p class="waitlist-success hidden text-emerald-600 text-sm font-medium mt-3 text-center">You're on the list! We'll be in touch.</p>
+      </form>
+    </div>
 
     <div class="bounce-down text-fluxy-muted">
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -103,8 +146,8 @@
 
         <!-- Numerical Calculations -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>#</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Numerical Calculations</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Lightning-fast mental arithmetic with instant feedback.</p>
@@ -115,8 +158,8 @@
 
         <!-- Trig Exact Values -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><path d="M4 20 L20 20 L4 6 Z" fill="none" /><path d="M7 20 A3 3 0 0 1 9 17" fill="none" /><text x="10" y="18" font-size="6" font-style="italic" fill="#B45309" stroke="none" font-family="serif">&#x3B8;</text></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>&theta;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Trig Exact Values</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Recall exact trigonometric values at all standard angles.</p>
@@ -127,8 +170,8 @@
 
         <!-- Differentiation -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><path d="M4 18 Q10 18 12 12 Q14 6 20 4" fill="none" /><line x1="8" y1="18" x2="18" y2="4" stroke-dasharray="2 2" /></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>f&prime;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Differentiation</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Differentiate polynomials, trig functions, and more.</p>
@@ -139,8 +182,8 @@
 
         <!-- Antidifferentiation -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><path d="M10 4 Q8 4 8 8 L8 16 Q8 20 10 20" fill="none" stroke-width="2.2" /><path d="M4 18 Q10 14 12 12 Q14 10 20 6" fill="none" /><line x1="4" y1="18" x2="20" y2="18" stroke-dasharray="2 2" opacity="0.4" /></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>&int;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Antidifferentiation</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Find antiderivatives with exact symbolic results.</p>
@@ -151,8 +194,8 @@
 
         <!-- Complex Numbers -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" /><line x1="12" y1="5" x2="12" y2="19" opacity="0.3" /><line x1="5" y1="12" x2="19" y2="12" opacity="0.3" /><line x1="12" y1="12" x2="17" y2="7" /><circle cx="17" cy="7" r="1.5" fill="#B45309" stroke="none" /></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>&Copf;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Complex Numbers</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Convert between Cartesian and polar form instantly.</p>
@@ -163,8 +206,8 @@
 
         <!-- Log & Index Laws -->
         <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
-          <div class="icon-circle mb-5">
-            <svg viewBox="0 0 24 24"><rect x="5" y="14" width="3" height="6" rx="0.5" /><rect x="10.5" y="10" width="3" height="10" rx="0.5" /><rect x="16" y="5" width="3" height="15" rx="0.5" /></svg>
+          <div class="icon-circle icon-circle-text mb-5">
+            <span>log</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Log &amp; Index Laws</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Master logarithmic and index law manipulation.</p>
@@ -187,19 +230,19 @@
           <div class="reveal">
             <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Competition</p>
             <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">
-              Compete. Climb.<br /><span class="gradient-text">Conquer.</span>
+              Challenge Your Friends.<br /><span class="gradient-text">Prove You're Better.</span>
             </h2>
-            <p class="text-fluxy-text text-lg mb-10 leading-relaxed">Elo-rated head-to-head competitions where every point matters.</p>
+            <p class="text-fluxy-text text-lg mb-10 leading-relaxed">Challenge your mates directly or get matched with opponents at your level. Go head-to-head on the same questions and build your Elo with every win.</p>
           </div>
 
           <div class="space-y-7 stagger-bullets">
             <div class="reveal-left flex items-start gap-4">
               <div class="icon-circle">
-                <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
               </div>
               <div>
-                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Matched by skill</h3>
-                <p class="text-fluxy-text text-sm leading-relaxed">Elo-based matchmaking pairs you with players at your level.</p>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">1v1 with your mates</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Challenge anyone with a link. No waiting for strangers — compete with the people you actually want to beat.</p>
               </div>
             </div>
 
@@ -209,7 +252,7 @@
               </div>
               <div>
                 <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Same question, same clock</h3>
-                <p class="text-fluxy-text text-sm leading-relaxed">Both players see identical questions simultaneously. Speed and accuracy win.</p>
+                <p class="text-fluxy-text text-sm leading-relaxed">Both players see identical questions simultaneously. Speed and accuracy decide the winner.</p>
               </div>
             </div>
 
@@ -218,8 +261,18 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" /></svg>
               </div>
               <div>
-                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Real stakes</h3>
-                <p class="text-fluxy-text text-sm leading-relaxed">Win Elo points. Climb the leaderboard. Challenge your friends.</p>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Elo ratings that matter</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Every match updates your Elo. Track who's really the best in your friend group — and settle it with maths.</p>
+              </div>
+            </div>
+
+            <div class="reveal-left flex items-start gap-4">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" fill="none"/><path d="M7 17l4-8 4 5 2-3 4 6" /><circle cx="7" cy="7" r="2" /></svg>
+              </div>
+              <div>
+                <h3 class="text-fluxy-heading font-semibold text-[15px] mb-0.5">Skill-based matchmaking</h3>
+                <p class="text-fluxy-text text-sm leading-relaxed">Don't know anyone on the app? No worries — get matched with opponents at your skill level automatically. Every match feels competitive, never one-sided.</p>
               </div>
             </div>
           </div>
@@ -355,7 +408,7 @@
           <ul class="space-y-3 text-sm mb-8">
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-fluxy-text">50 Numerical Calculations / day</span>
+              <span class="text-fluxy-text">40 Numerical Calculations / day</span>
             </li>
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -371,7 +424,15 @@
             </li>
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              <span class="text-fluxy-muted">No personal timed practice</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
               <span class="text-fluxy-muted">No streak lives</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              <span class="text-fluxy-muted">No colour themes</span>
             </li>
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-fluxy-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -379,8 +440,8 @@
             </li>
           </ul>
 
-          <a href="#download" class="block text-center bg-fluxy-surface-alt text-fluxy-heading font-semibold text-sm py-3 rounded-xl border border-fluxy-border hover:bg-fluxy-border-light transition">
-            Get Started Free
+          <a href="#waitlist" class="block text-center bg-fluxy-surface-alt text-fluxy-heading font-semibold text-sm py-3 rounded-xl border border-fluxy-border hover:bg-fluxy-border-light transition">
+            Join the Waitlist
           </a>
         </div>
 
@@ -394,17 +455,17 @@
           <!-- Price with toggle -->
           <div class="mb-6">
             <div class="flex items-center gap-3 mb-4">
-              <span class="text-stone-400 text-sm font-medium" data-price="monthly">Monthly</span>
-              <span class="text-white text-sm font-medium hidden" data-price="yearly">Monthly</span>
-              <div id="pricing-toggle" class="pricing-toggle"></div>
-              <span class="text-stone-400 text-sm font-medium" data-price="monthly">Yearly</span>
-              <span class="text-white text-sm font-medium hidden" data-price="yearly">Yearly</span>
+              <span class="text-stone-400 text-sm font-medium hidden" data-price="monthly">Monthly</span>
+              <span class="text-white text-sm font-medium" data-price="yearly">Monthly</span>
+              <div id="pricing-toggle" class="pricing-toggle active"></div>
+              <span class="text-stone-400 text-sm font-medium hidden" data-price="monthly">Yearly</span>
+              <span class="text-white text-sm font-medium" data-price="yearly">Yearly</span>
             </div>
-            <div data-price="monthly">
+            <div data-price="monthly" class="hidden">
               <span class="text-4xl font-extrabold text-white">$7.99</span>
               <span class="text-stone-400 text-sm"> / month</span>
             </div>
-            <div data-price="yearly" class="hidden">
+            <div data-price="yearly">
               <span class="text-4xl font-extrabold text-white">$59.99</span>
               <span class="text-stone-400 text-sm"> / year</span>
               <p class="text-amber-400 text-sm font-medium mt-1">Save 37% — just $5.00/month</p>
@@ -420,6 +481,10 @@
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               <span class="text-stone-300"><strong class="text-white">Unlimited</strong> daily competitions</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-stone-300"><strong class="text-white">Personal timed practice</strong> — train for competitions solo</span>
             </li>
             <li class="flex items-start gap-2.5">
               <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -439,8 +504,8 @@
             </li>
           </ul>
 
-          <a href="#download" class="block text-center bg-amber-400 text-fluxy-heading font-bold text-sm py-3 rounded-xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/20">
-            Go Premium
+          <a href="#waitlist" class="block text-center bg-amber-400 text-fluxy-heading font-bold text-sm py-3 rounded-xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/20">
+            Join the Waitlist
           </a>
         </div>
 
@@ -452,21 +517,58 @@
   <section id="download" class="py-28 md:py-36 px-6 section-alt">
     <div class="max-w-3xl mx-auto text-center">
       <div class="reveal">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-8">Ready to Level Up Your Maths?</h2>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-4">Ready to Level Up Your Maths?</h2>
+        <p class="text-fluxy-text text-lg mb-8">Sign up for the beta and be the first to know when Fluxy launches.</p>
       </div>
 
       <div class="reveal-scale mb-12 katex-hero">
         <div class="inline-block bg-fluxy-equation-bg rounded-2xl px-8 py-5 shadow-lg glow-pulse equation-accent">
-          <div data-katex="\displaystyle\int_0^{\pi} \!\sin(x)\,dx = 2" data-display class="text-white"></div>
+          <div data-katex="\displaystyle\int \!\cos(x)\,dx = \sin(x) + C" data-display class="text-white"></div>
         </div>
       </div>
 
-      <div class="reveal" style="transition-delay: 200ms">
-        <a href="#" class="inline-flex items-center gap-3 bg-fluxy-heading text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-stone-900/15 hover:shadow-xl hover:bg-fluxy-heading/90 transition-all mb-6">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download on the App Store
+      <div class="reveal w-full max-w-md mx-auto" style="transition-delay: 200ms">
+        <form id="footer-waitlist-form" class="waitlist-form bg-fluxy-surface border border-fluxy-border rounded-2xl p-6 shadow-sm text-left">
+          <div class="space-y-3">
+            <input type="text" name="name" placeholder="Your name" required
+              class="w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+
+            <div class="flex items-center gap-2 bg-fluxy-bg rounded-xl p-1 border border-fluxy-border">
+              <button type="button" class="contact-toggle active flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="email">Email</button>
+              <button type="button" class="contact-toggle flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="phone">Phone</button>
+            </div>
+
+            <input type="email" name="contact" placeholder="you@email.com" required
+              class="contact-input w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+          </div>
+
+          <button type="submit" class="w-full mt-4 bg-fluxy-heading text-white font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-heading/90 transition shadow-sm">
+            Join the Waitlist
+          </button>
+
+          <p class="waitlist-error hidden text-red-500 text-xs mt-2 text-center"></p>
+          <p class="waitlist-success hidden text-emerald-600 text-sm font-medium mt-3 text-center">You're on the list! We'll be in touch.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-28 md:py-36 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal">
+        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Contact</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Get in Touch</h2>
+        <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">Have a question, suggestion, or just want to say hello? We'd love to hear from you.</p>
+      </div>
+
+      <div class="reveal-scale">
+        <a href="mailto:hello@getfluxy.app" class="inline-flex items-center gap-3 bg-fluxy-surface border border-fluxy-border rounded-2xl px-8 py-5 shadow-sm hover:shadow-md hover:border-fluxy-border-light transition-all group">
+          <svg class="w-6 h-6 text-fluxy-amber shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          <span class="text-fluxy-heading font-semibold text-lg group-hover:text-fluxy-amber transition-colors">hello@getfluxy.app</span>
         </a>
-        <p class="text-fluxy-muted text-base">Join students mastering exact mathematics daily.</p>
       </div>
     </div>
   </section>
