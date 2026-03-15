@@ -356,6 +356,11 @@ body {
   }
 }
 
+/* ── Waitlist scroll offset ── */
+#waitlist {
+  scroll-margin-top: 8rem;
+}
+
 /* ── Waitlist form ── */
 .contact-toggle {
   color: var(--color-fluxy-muted);
