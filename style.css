@@ -2,10 +2,10 @@
 @import "katex/dist/katex.min.css";
 
 @theme {
-  --color-fluxy-orange: #FFBF00;
-  --color-fluxy-amber: #F59E0B;
-  --color-fluxy-warm: #FFFBEB;
-  --color-fluxy-warm-mid: #FEF3C7;
+  --color-fluxy-orange: #708090;
+  --color-fluxy-amber: #708090;
+  --color-fluxy-warm: #F0F2F5;
+  --color-fluxy-warm-mid: #E4E8EC;
   --color-fluxy-bg: #FAFAF9;
   --color-fluxy-surface: #FFFFFF;
   --color-fluxy-surface-alt: #F5F5F4;
@@ -60,7 +60,7 @@ body {
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+  background: linear-gradient(90deg, #708090, #8899A6);
   border-radius: 1px;
 }
 
@@ -144,15 +144,15 @@ body {
 }
 
 .topic-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(112, 128, 144, 0.2);
   transform: translateY(-6px);
-  background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 40%);
+  background: linear-gradient(180deg, #F0F2F5 0%, #FFFFFF 40%);
 }
 
 /* ── Glow pulse on hero equation ── */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.12), 0 8px 32px rgba(0, 0, 0, 0.15); }
-  50% { box-shadow: 0 0 50px rgba(245, 158, 11, 0.22), 0 8px 32px rgba(0, 0, 0, 0.15); }
+  0%, 100% { box-shadow: 0 0 30px rgba(112, 128, 144, 0.12), 0 8px 32px rgba(0, 0, 0, 0.15); }
+  50% { box-shadow: 0 0 50px rgba(112, 128, 144, 0.22), 0 8px 32px rgba(0, 0, 0, 0.15); }
 }
 
 .glow-pulse {
@@ -161,8 +161,8 @@ body {
 
 /* ── Premium card glow ── */
 @keyframes premium-glow {
-  0%, 100% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 40px rgba(245, 158, 11, 0.06); }
-  50% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 60px rgba(245, 158, 11, 0.14); }
+  0%, 100% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 40px rgba(112, 128, 144, 0.06); }
+  50% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 60px rgba(112, 128, 144, 0.14); }
 }
 
 .premium-glow {
@@ -181,7 +181,7 @@ body {
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #D97706, #F59E0B, #FBBF24);
+  background: linear-gradient(135deg, #4A5568, #708090, #8899A6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -249,8 +249,8 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
-  border: 1px solid #FDE68A;
+  background: linear-gradient(135deg, #F0F2F5, #E4E8EC);
+  border: 1px solid #B0BEC5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,7 +260,7 @@ body {
 .icon-circle svg {
   width: 20px;
   height: 20px;
-  stroke: #B45309;
+  stroke: #4A5568;
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -268,7 +268,7 @@ body {
 }
 
 .icon-circle-text span {
-  color: #B45309;
+  color: #4A5568;
   font-weight: 700;
   font-size: 16px;
   font-family: "Inter", system-ui, sans-serif;
