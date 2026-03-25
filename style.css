@@ -3,7 +3,7 @@
 
 @theme {
   --color-fluxy-orange: #708090;
-  --color-fluxy-amber: #708090;
+  --color-fluxy-amber: #FFBF00;
   --color-fluxy-warm: #F0F2F5;
   --color-fluxy-warm-mid: #E4E8EC;
   --color-fluxy-bg: #FAFAF9;
@@ -60,7 +60,7 @@ body {
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #708090, #8899A6);
+  background: linear-gradient(90deg, #708090, #FFBF00);
   border-radius: 1px;
 }
 
@@ -151,8 +151,8 @@ body {
 
 /* ── Glow pulse on hero equation ── */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(112, 128, 144, 0.12), 0 8px 32px rgba(0, 0, 0, 0.15); }
-  50% { box-shadow: 0 0 50px rgba(112, 128, 144, 0.22), 0 8px 32px rgba(0, 0, 0, 0.15); }
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 191, 0, 0.12), 0 8px 32px rgba(0, 0, 0, 0.15); }
+  50% { box-shadow: 0 0 50px rgba(255, 191, 0, 0.22), 0 8px 32px rgba(0, 0, 0, 0.15); }
 }
 
 .glow-pulse {
@@ -161,8 +161,8 @@ body {
 
 /* ── Premium card glow ── */
 @keyframes premium-glow {
-  0%, 100% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 40px rgba(112, 128, 144, 0.06); }
-  50% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 60px rgba(112, 128, 144, 0.14); }
+  0%, 100% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 40px rgba(255, 191, 0, 0.06); }
+  50% { box-shadow: 0 20px 60px rgba(28, 25, 23, 0.18), 0 0 60px rgba(255, 191, 0, 0.14); }
 }
 
 .premium-glow {
@@ -181,7 +181,7 @@ body {
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #4A5568, #708090, #8899A6);
+  background: linear-gradient(135deg, #566573, #708090, #FFBF00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -260,7 +260,7 @@ body {
 .icon-circle svg {
   width: 20px;
   height: 20px;
-  stroke: #4A5568;
+  stroke: #708090;
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -268,7 +268,7 @@ body {
 }
 
 .icon-circle-text span {
-  color: #4A5568;
+  color: #708090;
   font-weight: 700;
   font-size: 16px;
   font-family: "Inter", system-ui, sans-serif;
