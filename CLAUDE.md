@@ -12,24 +12,42 @@ Fluxy is an iOS mathematics education app for interactive practice across multip
 
 ### Current state
 - **SwiftUI-only** with no separate ViewModel layer — state lives in views via `@State`
-- **No networking, no persistence** — all question generation is pure client-side logic
-- **LaTeXSwiftUI** is the only external dependency, used for rendering math expressions in Trig, Differentiation, Antidifferentiation, Complex Numbers, and Log/Index Laws views
+- **Firebase** is live: Auth (Sign in with Apple + email/password) and Firestore (user profiles, streaks, Elo, competitions, friends, challenges)
+- **Service layer** is implemented — `@Observable` service objects owned at app level in `FluxyApp.swift` and injected via SwiftUI environment:
+  - `AuthService` — Firebase Auth wrapper; Sign in with Apple + email/password; exposes `currentUser`
+  - `UserService` — reads/writes Firestore `users` collection; holds `UserProfile` (username, email, streakDays, eloRating, isPremium, lifetimeTotals, etc.)
+  - `StreakService` — computes streak state; UserDefaults local cache synced to Firestore on foreground; daily goal = 20 questions; revival state persisted in UserDefaults
+  - `FriendService` — friend requests (pending_sent / pending_received / accepted) stored in Firestore subcollection
+  - `CompetitionService` — SBMM matchmaking via Firebase Cloud Function, real-time Firestore listener for live match state, async friend challenges, match history
+- **LaTeXSwiftUI** used for rendering math expressions in Trig, Differentiation, Antidifferentiation, Complex Numbers, and Log/Index Laws views
 - UIKit is used only for `UINotificationFeedbackGenerator` and `UIImpactFeedbackGenerator`
+- **App is locked to light mode** via `.preferredColorScheme(.light)` on the root `ContentView` in `FluxyApp.swift`
 
-### Target architecture (as features are added)
-- **Authentication**: Sign in with Apple + email/password via Firebase Auth
-- **Backend**: Firebase (Firestore for user data/streaks/Elo, Firebase Functions for Elo calculation and competition orchestration, Firebase Realtime Database or Firestore for live competition state)
-- **In-app purchase**: StoreKit 2 for premium subscription
-- **Local persistence**: SwiftData (or simple UserDefaults) for caching daily question counts and streak data locally so the app works offline and syncs when back online
-- **Service layer**: Introduce `@Observable` service objects (e.g. `AuthService`, `UserService`, `StreakService`, `CompetitionService`) owned at the app level and injected via SwiftUI environment — keeping views free of network logic
+### Target architecture (remaining work)
+- **Push notifications**: `UserNotifications` for streak reminders (not yet implemented)
 
 ## File Structure
 
 | File | Purpose |
 |---|---|
-| `FluxyApp.swift` | App entry point (`@main`) |
-| `ContentView.swift` | Home screen, topic selection, `MathTopic` enum, navigation routing |
-| `NumericalCalculationsView.swift` | Mental arithmetic with custom numpad |
+| `FluxyApp.swift` | App entry point (`@main`); owns and injects all services; configures Firebase; locked to light mode |
+| `ContentView.swift` | `HomeView` (home screen + competition nav stack), `TopicSelectionView`, `TopicCard`, `MathTopic` enum, `Color(hex:)` extension, `fluxyOrange` brand colour |
+| `LandingView.swift` | Sign in / sign up entry point shown when no authenticated user; Sign in with Apple + email flows; username setup sheet on first login |
+| `LogInView.swift` | Email/password sign-in form |
+| `SignUpView.swift` | Email/password sign-up form |
+| `AuthService.swift` | Firebase Auth wrapper (`@Observable`); Sign in with Apple + email/password; `currentUser` |
+| `UserService.swift` | Firestore `users` collection read/write; `UserProfile` model (username, email, streakDays, eloRating, isPremium, lifetimeTotals, etc.) |
+| `StreakService.swift` | Streak state (`todayCorrectCount`, `streakDays`, `streakCompletedToday`); UserDefaults local cache; syncs from Firestore on foreground; daily goal = 20; revival state (`revivalAvailable`, `revivalOldStreakDays`, `revivalOldElo`) |
+| `StreakRevivalOverlay.swift` | Full-screen revival pop-up shown on first app open after a premium streak break; heart icon, streak count, remaining lives, "Revive Streak" and "Not Now" actions |
+| `StreakProgressBar.swift` | Shared progress bar shown in practice views and home screen; reads from `StreakService` |
+| `StreakCompletionAnimation.swift` | Overlay animation shown when a streak is completed for the day |
+| `FriendService.swift` | Friend requests and accepted friends via Firestore subcollection; search by username |
+| `FriendsView.swift` | Friend list, search, pending requests UI |
+| `ProfileView.swift` | Current user's profile: username, email, streak, Elo, lifetime stats, sign out, delete account |
+| `CompetitionService.swift` | SBMM matchmaking (Firebase Cloud Function), real-time match listener, async friend challenges, match history, Elo |
+| `CompetitionView.swift` | All competition screens: lobby, setup, matchmaking, live match (SBMM + challenge), results |
+| `CompetitionQuestionGenerator.swift` | Seeded question generation for competition matches |
+| `NumericalCalculationsView.swift` | Mental arithmetic with custom numpad; easy (integers) and hard (fractions) modes |
 | `TrigExactValuesView.swift` | Recall exact trig values at standard angles |
 | `DifferentiationView.swift` | Polynomial and trig derivatives |
 | `AntidifferentiationView.swift` | Polynomial and trig integrals |
@@ -63,13 +81,27 @@ Each view generates questions as structs containing a LaTeX string and 4 `Choice
 - Displayed as flame buttons (1–3 flames) for difficulty
 - Custom floating-card dropdown for mode where applicable (matches NumericalCalculations/ComplexNumbers style)
 
+### Numpad Layout (NumericalCalculations + Competition views)
+- The answer input display area must always have a **fixed height** (`ZStack { ... }.frame(height: 96)`) so that switching between integer and fraction display never causes the numpad to shift or resize
+- The fraction bar button uses a shorter `fracBarHeight = keyHeight * 0.6` — it is a compact extra row that sits above the digit keys without stealing space from them
+- `keyHeight` is always computed from the base 4.5-row formula regardless of whether hard (fraction) mode is active
+
+### Firestore Data Model
+- **`users/{uid}`**: `username`, `email`, `createdAt`, `streakDays`, `streakCompletedToday`, `todayCorrectCount`, `lastActiveDate` (yyyy-MM-dd, Melbourne time), `isPremium`, `streakLives`, `streakLivesLastGrantMonth` ("yyyy-MM"), `eloRating`, `lifetimeTotals` (map of `MathTopic.firestoreKey` → Int)
+- **`usernames/{username}`**: `uid` — used for uniqueness checks
+- **`users/{uid}/friends/{friendUid}`**: `username`, `status` (pending_sent / pending_received / accepted), `createdAt`
+- **Competition**: `matches/{matchId}`, `queue/{uid}` — managed by `CompetitionService` and Firebase Cloud Functions
+- **Challenges**: `challenges/{challengeId}` — async friend challenges with `challenger`, `opponent`, `status`, `mode`, `duration`, `challengerResult`, `opponentResult`, `winnerId`
+
 ## Shared UI Conventions
 
 - Brand accent color: `fluxyOrange` = `#FFBF00` (defined via `Color(hex:)` extension in `ContentView.swift`)
+- App is always in **light mode** — `.preferredColorScheme(.light)` applied at the root; do not use dark-mode-only colours or assets
 - Wrong answer: shake animation + `UINotificationFeedbackGenerator(.error)` haptic
 - Correct answer: success animation + `UIImpactFeedbackGenerator(.heavy)` haptic
 - Answer grids: 2×2 layout of multiple-choice buttons
 - Large question display: 80pt font, 1.9× scale effect for LaTeX views
+- Streak progress bar (`StreakProgressBar`) is shown in practice views and the home screen — reads from `StreakService` environment object
 
 ## Adding a New Topic
 
@@ -88,29 +120,30 @@ Each view generates questions as structs containing a LaTeX string and 4 `Choice
 
 | Feature | Free | Premium |
 |---|---|---|
-| Numerical Calculations questions/day | 40 | Unlimited |
-| All other topics questions/day | 10 per topic (50 total across 5 topics) | Unlimited |
+| Numerical Calculations questions/day | Unlimited | Unlimited |
+| All other topics questions/day | 20 per topic (100 total across 5 topics) | Unlimited |
 | Daily competitions | 3 | Unlimited |
-| Personal timed practice (competition training) | No | Yes |
 | Streak lives/month | 0 | 2 |
-| Streak levels available | Level 1 only | Levels 1–3 |
 | Colour palette customisation | No | Yes |
-| Profile design flexibility | Basic | Full |
+| Avatar customisation | No | Yes |
 
-**Rationale for limits:** 40 numerical + 10 per LaTeX topic = 90 questions/day free. This is enough for a meaningful 10–15 minute daily session across multiple topics, building habit before hitting a wall. The limit should feel like a natural stopping point, not a punishment. Do not show hard error screens — show a friendly "come back tomorrow" message with a clear premium upsell.
+**Rationale for limits:** Numerical Calculations is always unlimited — it's the core free experience and the best habit-forming topic. The 5 LaTeX topics are capped at 20/day free (100 total), which is enough for a meaningful session before hitting a wall. The limit should feel like a natural stopping point, not a punishment. Do not show hard error screens — show a friendly "come back tomorrow" message with a clear premium upsell.
 
 ### Streak System
 
-Streaks require completing a daily question quota. They reset to zero if the quota is missed and the user has no lives remaining. Premium users get 2 lives per month that can be spent to protect a broken streak.
+Streaks require completing 20 questions in any topic per day. They reset to zero if the quota is missed and the user has no lives remaining. Premium users get 2 lives per calendar month (reset client-side on foreground sync; never accumulate — always topped up to exactly 2).
 
-| Level | Requirement | Availability |
-|---|---|---|
-| Level 1 | 20 questions in any one topic per day | Free + Premium |
-| Level 2 | 20 questions each in any 3 different topics per day | Premium only |
-| Level 3 | 20 questions each in all 6 topics per day | Premium only |
+**Streak lives revival flow (implemented):**
+1. Streak breaks overnight (Cloud Function sets `streakDays: 0`)
+2. User opens app → foreground sync detects break (`streakDays == 0 && local > 0`) → Elo penalty applied (4%)
+3. If premium + has lives → `StreakRevivalOverlay` shown automatically (one-time per break, persisted in UserDefaults)
+4. User can "Revive Streak" (restores old streak, decrements life, undoes Elo penalty) or "Not Now"
+5. If dismissed: a "Revive Streak" pill appears on the home screen below the streak bar
+6. Tapping "Practice" while revival is pending shows an alert: completing the daily goal will forfeit the revival option for this break (life is kept)
+7. Completing 20 questions forfeits the revival permanently for that break; fresh streak of 1 begins
+8. Monthly life reset: checked on foreground sync — if current Melbourne month differs from `streakLivesLastGrantMonth`, reset to 2 lives and update Firestore
 
-- Streak level, current streak length, and Elo rating are public on a user's profile
-- Completing higher streak levels earns more "streak points" / visual badges (TBD)
+- Current streak length and Elo rating are public on a user's profile
 
 ### Competition Mode
 
@@ -123,8 +156,8 @@ Streaks require completing a daily question quota. They reset to zero if the quo
 
 ### User Profiles
 
-- Display name, avatar (basic free / customisable premium)
-- Public stats: current streak, streak level, Elo rating
+- Display name, avatar (customisable — premium only)
+- Public stats: current streak, Elo rating
 - Leaderboard/friend list showing friends' Elo and streaks
 
 ### Onboarding & Curriculum Mapping
@@ -132,7 +165,7 @@ Streaks require completing a daily question quota. They reset to zero if the quo
 On first launch, ask the student which VCE subject they are studying (Further Mathematics, Mathematical Methods, Specialist Mathematics). Use their answer to:
 - Surface the most relevant topics prominently on the home screen
 - Personalise the streak quota messaging ("Methods students typically drill 20 Differentiation questions per day")
-- In future, tailor which topics count toward streak levels
+- In future, surface the most relevant topics more prominently based on subject
 
 This is a high-ROI build — one screen on first launch, significant improvement in new-user retention.
 
@@ -169,79 +202,92 @@ The project requires five major phases before the full product vision is complet
 
 ---
 
-### Phase 1 — Persistence & Authentication
-*Goal: user identity, local + cloud storage of progress. No social features yet.*
-
-1. **Add Firebase SDK** (Auth, Firestore) via Swift Package Manager
-2. **Authentication flow**
-   - `AuthService: @Observable` — wraps Firebase Auth, exposes `currentUser`, `signIn()`, `signUp()`, `signInWithApple()`
-   - Onboarding/login screen (shown when no authenticated user)
-   - Sign in with Apple (required for App Store) + email/password fallback
-3. **User document in Firestore**
-   - Schema: `userId`, `displayName`, `isPremium`, `eloRating` (default 1000), `streakDays`, `streakLevel`, `streakLives`, `lastActiveDate`, `dailyCounts` (map of topic → count, resets daily)
-4. **`UserService: @Observable`** — reads/writes user document; injected via `.environment`
-5. **`StreakService: @Observable`** — computes streak state from `lastActiveDate` + `dailyCounts`; handles daily reset logic; deducts a life on missed day if lives > 0
-6. **Local caching** — `UserDefaults` or `SwiftData` shadow of daily counts so the app is usable offline; synced to Firestore on reconnect
-7. **Wire daily question limits into each practice view** — each view reads from `UserService` to check remaining questions; shows a "quota reached" paywall nudge when at limit
+### Phase 1 — Persistence & Authentication ✅ COMPLETE
+- Firebase SDK (Auth + Firestore) integrated
+- `AuthService`, `UserService`, `StreakService` implemented and injected via environment
+- Sign in with Apple + email/password flows working; username setup on first login
+- User document in Firestore with full schema
+- UserDefaults local cache for streak state; syncs from Firestore on app foreground
 
 ---
 
-### Phase 2 — Streak UI & Daily Progress
-*Goal: visible streak display on home screen and within practice views.*
-
-1. **Streak widget on home screen** (ContentView) — shows current streak, level badge, flame icon
-2. **Daily progress ring/bar** per topic on home screen — shows questions answered today vs target (20)
-3. **Streak level indicator** — L1/L2/L3 badge; locked levels shown greyed out with "Premium" lock for free users
-4. **"Lives" display** — small heart icons on streak widget; tappable to explain the mechanic
-5. **End-of-day summary** (optional push notification via `UserNotifications`) — "You're 5 questions away from keeping your streak"
-6. **Streak broken screen** — shown when a streak resets; offers life purchase or premium upsell
+### Phase 2 — Streak UI & Daily Progress ✅ COMPLETE
+- `StreakProgressBar` shown on home screen and in all practice views
+- Streak count badge on profile avatar button in `HomeView`
+- `StreakCompletionAnimation` plays when daily goal (20 questions) is reached
+- `StreakService.recordCorrectAnswer()` increments count and writes to Firestore
 
 ---
 
-### Phase 3 — Premium & In-App Purchase
-*Goal: gate premium features behind a StoreKit 2 subscription.*
+### Phase 3 — Premium & In-App Purchase ✅ MOSTLY COMPLETE
+- StoreKit 2 integrated; product `com.fluxy.premium.monthly` defined in `.storekit` config
+- `PurchaseService: @Observable` — wraps StoreKit 2 APIs; exposes `isPremium: Bool`; handles restore; syncs to Firestore
+- `PaywallView` — generic modal with `PaywallReason` enum; shown when free user hits any limit
+- `DailyLimitOverlay` — shown when daily question limit reached in practice views
+- Daily question limits enforced in all 5 LaTeX topic views (20/day free); Numerical Calculations unlimited for all
+- Daily competition limit enforced (3/day free)
+- Colour scheme picker gated behind premium in `ProfileView` (lock icon + paywall on tap)
+- Avatar picker gated behind premium in `ProfileView` (lock badge + paywall on tap)
 
-1. **Add StoreKit 2** — define one auto-renewing subscription product (e.g. `com.fluxy.premium.monthly`) in App Store Connect
-2. **`PurchaseService: @Observable`** — wraps StoreKit 2 `Product`/`Transaction` APIs; exposes `isPremium: Bool`; handles restore purchases
-3. **Paywall screen** — shown when free user hits a limit (questions, competitions, streak level); lists premium benefits; single subscribe CTA
-4. **Gate UI elements** — streak level badges for L2/L3 show lock icon; colour palette picker disabled; profile customisation gated
-5. **Colour palette** (premium perk) — define 3–4 palettes beyond the default orange; stored in `UserService`; applied via a `ThemeService` injected into environment; all accent colour references read from theme instead of hardcoded `fluxyOrange`
-6. **Profile customisation** — avatar picker (system SF Symbols or photo), custom display name, bio (premium)
+**Remaining:**
+- Streak Levels 2 & 3 (only Level 1 active; L2/L3 tracking and unlock not yet implemented)
 
----
-
-### Phase 4 — User Profiles, Social & Teacher Adoption
-*Goal: public profiles, friend system, leaderboard, viral sharing, and teacher-driven class growth.*
-
-1. **Profile screen** — displays own or another user's public stats (streak, Elo, streak level, join date)
-2. **Friend system** — search by username; send/accept friend requests stored in Firestore subcollection
-3. **Friends leaderboard** — ranked by Elo; shows streak length alongside
-4. **Global leaderboard** (optional, premium) — top N users by Elo
-5. **Deep links** — share profile URL; tapping opens profile in app
-6. **Share cards** — shareable image cards for streak milestones and competition results; generated via SwiftUI rendered to an image and passed to the system share sheet
-7. **Teacher class feature** — any user can generate a class code and QR code from their profile; students who scan/follow the link are added to the class group; the teacher sees a simple class leaderboard (streaks + Elo); class code links route through a Universal Link to the App Store if the app isn't installed
-8. **"Challenge a friend" deep link** — generates a URL that auto-starts a competition against the sender when tapped
+**Colour themes (12 implemented):** Amber, Arctic, Ember, Forest, Violet, Sakura, Ocean, Sunset, Midnight, Neon, Rose Gold, Slate — all defined in `AppTheme.swift` via `ThemeService`; selectable from `ThemePickerView` (premium-gated).
 
 ---
 
-### Phase 5 — Competition Mode
-*Goal: real-time Elo-rated head-to-head competitions.*
+### Phase 4 — User Profiles, Social & Teacher Adoption ✅ MOSTLY COMPLETE
+- `ProfileView` — username, email, streak, Elo, lifetime stats per topic, sign out, delete account
+- `FriendService` + `FriendsView` — search by username, send/accept friend requests, friend list
+- **Friend challenges** — async 60s 1v1 via `CompetitionService.createChallenge()`, pending/active challenge rows in lobby
 
-1. **Skill-based matchmaking (SBMM)** — user taps "Compete"; `CompetitionService` writes a matchmaking document to Firestore; a Firebase Cloud Function pairs users by Elo proximity within a timeout window, expanding the search radius gradually if no close match is found; falls back to a bot/random opponent as a last resort. SBMM is a core feature — matches should always feel competitive and appropriately challenging, not one-sided
-2. **Competition session** — Firestore document tracks: both player IDs, current question, each player's answer + timestamp, round number (e.g. best of 5 questions), scores
-3. **`CompetitionView`** — real-time listener on competition document; shows shared question with countdown timer; both players answer simultaneously; shows who answered correctly/faster
-4. **Elo update** — Firebase Cloud Function fires on competition completion; updates both users' `eloRating` in Firestore using standard Elo formula (K = 32 initially)
-5. **Results screen** — shows Elo change, winner/loser, option to rematch or return home
-6. **Daily competition limit** — `CompetitionService` checks `dailyCounts.competitions` against limit (3 free / unlimited premium)
-7. **Friend challenge** — invite a specific friend to a competition via deep link or in-app notification
+**Remaining:**
+- Friends leaderboard (ranked by Elo)
+- Share cards (streak milestones, competition results)
+- Teacher class feature / QR codes
+- Deep links / Universal Links
+
+---
+
+### Phase 5 — Competition Mode ✅ MOSTLY COMPLETE
+- SBMM matchmaking via Firebase Cloud Function; falls back to a bot after 7s countdown
+- Live 60s match (`NumericalMatchView`) with real-time opponent score sync via Firestore listener
+- Bot opponent with pre-generated answer timings revealed in real time
+- Async friend challenge match (`NumericalChallengeMatchView`)
+- Results screen with Elo delta; match history in lobby
+- Competition is Numerical Calculations only (easy = integers, hard = fractions)
+- Duration options: 30 / 60 / 90 / 120 seconds
+
+**Elo formula** (implemented in Cloud Function `submitMatchResult`):
+- `K(elo) = elo < 1200 ? 32 : elo < 1600 ? 24 : 16`
+- `expected = 1 / (1 + 10^((opponentElo − myElo) / 400))`
+- `margin = (myScore − oppScore) / max(myScore + oppScore, 1)` → −1..1
+- `W = clamp(0.5 + margin × 0.5, 0, 1)`
+- `delta = round(K × (W − expected))`
+
+**Streak break Elo penalty** (implemented client-side in `UserService.applyStreakBreakEloPenalty`):
+- When the server resets `streakDays` to 0, the user loses **4% of their current Elo rating** (floor: 0)
+- `newElo = max(0, round(currentElo × 0.96))`
+- Detected in `StreakService.apply()` when incoming `streakDays == 0` and local `currentStreakDays > 0`
+- Wired via `StreakService.onStreakBroken` callback set in `FluxyApp.init()`
+- Penalty fires once per break (on next app foreground after the streak resets overnight)
+- Penalty is **undone** if the user revives their streak via a streak life (`UserService.undoStreakBreakEloPenalty`)
+
+**Elo permanent premium unlock** (implemented in `PurchaseService.grantEloPremium`):
+- Reaching Elo 2400 grants **lifetime premium** — the user keeps premium access permanently regardless of their Elo going forward (they can drop below 2400 and still retain premium)
+
+**Remaining:**
+- Daily competition limit enforcement (3 free / unlimited premium) — depends on Phase 3
+- "Challenge a friend" deep link / Universal Link
 
 ---
 
 ## What Not To Do
 
-- Do not add networking or persistence without being asked
+- Do not add new Firebase collections or schema changes without being asked
 - Do not add a Combine-based reactive layer — use Swift async/await or `@Observable` instead
 - Do not use floating-point values in rendered math answers — use exact symbolic strings
 - Do not force-unwrap optionals
 - Do not add comments to code you haven't changed
-- Do not start any Phase 2+ work until Phase 1 persistence is in place
+- Do not start Phase 3 (premium/IAP) work without being asked — it requires App Store Connect setup first
+- Do not use dark-mode-aware system colours that would look wrong — the app is locked to light mode
