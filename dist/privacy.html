@@ -54,7 +54,7 @@
       <section>
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">2. Who I Am</h2>
         <p>Fluxy is operated by Charlie Sabin, an Australian sole trader (ABN holder). Fluxy is not a registered business name — it is the product name for this mathematics education application for iOS, designed for students studying secondary-level mathematics. The App is offered as a free-to-download application with an optional premium subscription.</p>
-        <p class="mt-3"><strong class="text-fluxy-heading">Operator:</strong> Charlie Sabin (sole trader)<br /><strong class="text-fluxy-heading">Contact:</strong> hello@getfluxy.app</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Operator:</strong> Charlie Sabin (sole trader)<br /><strong class="text-fluxy-heading">ABN:</strong> 64 151 412 796<br /><strong class="text-fluxy-heading">Contact:</strong> hello@getfluxy.app</p>
       </section>
 
       <!-- 3 -->
@@ -87,7 +87,7 @@
 
         <h3 class="text-lg font-semibold text-fluxy-heading mt-6 mb-2">3.4 Notification Data</h3>
         <ul class="list-disc pl-6 space-y-1.5">
-          <li><strong class="text-fluxy-heading">FCM (Firebase Cloud Messaging) token</strong> — a device-level push token stored against your user account in Firestore so that push notifications (e.g. friend requests, challenge completions) can be delivered to your device. This token is deleted from my servers when you sign out or delete your account.
+          <li><strong class="text-fluxy-heading">FCM (Firebase Cloud Messaging) token</strong> — a device-level push token stored against your user account in Firestore so that push notifications (e.g. friend requests, challenge completions) can be delivered to your device. This token is deleted from my servers when you sign out or delete your account.</li>
           <li><strong class="text-fluxy-heading">Notification permission status</strong> — stored locally on your device via UserDefaults only.</li>
         </ul>
 
@@ -162,7 +162,7 @@
         <ul class="list-disc pl-6 space-y-1.5">
           <li><strong class="text-fluxy-heading">Performance of a contract</strong> — to provide the App and the services you have signed up for.</li>
           <li><strong class="text-fluxy-heading">Legitimate interests</strong> — to improve the App, maintain security, and operate social and competition features.</li>
-          <li><strong class="text-fluxy-heading">Consent</strong> — for push notifications (you must explicitly grant permission on your device; you can withdraw consent at any time via iOS Settings).</li>
+          <li><strong class="text-fluxy-heading">Consent</strong> — for push notifications (you must explicitly grant permission on your device; you can withdraw consent at any time via iOS Settings &rarr; Fluxy &rarr; Notifications, and withdrawal takes effect immediately).</li>
           <li><strong class="text-fluxy-heading">Legal obligation</strong> — where required by Australian law.</li>
         </ul>
       </section>
@@ -216,7 +216,7 @@
       <section>
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">8. Cross-Border Data Transfers</h2>
         <p>By using the App, your personal information is stored and processed in the United States by Google Firebase and Apple. Before disclosing personal information to an overseas recipient, I take reasonable steps to ensure that the overseas recipient does not breach the Australian Privacy Principles in relation to that information, in accordance with APP 8.</p>
-        <p class="mt-3">Google maintains Standard Contractual Clauses and other safeguards for international data transfers. Apple processes data in accordance with its own privacy policies and contractual commitments. You consent to these transfers by using the App.</p>
+        <p class="mt-3">Google maintains Standard Contractual Clauses and other safeguards for international data transfers. Apple processes data in accordance with its own privacy policies and contractual commitments. These transfers are made subject to appropriate safeguards as described in Section 13.5 for EEA, UK, and Swiss users, and in accordance with APP 8 for Australian users.</p>
         <p class="mt-3">If you are located in the EEA, UK, or Switzerland, additional transfer safeguards apply — see Section 13.5 below.</p>
       </section>
 
@@ -225,7 +225,8 @@
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">9. Data Retention</h2>
         <p class="mb-3">I retain your personal information for as long as your account is active or as needed to provide the Service. Cancelling your premium subscription does not delete your account or personal information — your data is retained under the free tier. To have your data deleted, you must delete your account (see below) or contact me.</p>
         <ul class="list-disc pl-6 space-y-1.5">
-          <li>If you <strong class="text-fluxy-heading">delete your account</strong> through the App (Profile &rarr; Delete Account), your Firestore user document, username reservation, friend list, and active match data are deleted immediately. Your Firebase Auth account is also deleted immediately. Automated Firebase backups that may contain residual copies of your data are overwritten within 30 days in accordance with Google Cloud's backup retention schedule.</li>
+          <li>If you <strong class="text-fluxy-heading">delete your account</strong> through the App (Profile &rarr; Delete Account), your Firestore user document, username reservation, friend list, and active match data are deleted immediately. Your Firebase Auth account is also deleted immediately. Completed match records that reference your account are anonymised (your UID is replaced with a generic identifier) to preserve the integrity of other users' match history. Automated Firebase backups that may contain residual copies of your data are overwritten within 30 days in accordance with Google Cloud's backup retention schedule.</li>
+          <li>If your account is <strong class="text-fluxy-heading">inactive for 24 consecutive months</strong> (no sign-in activity), I may delete your account and associated personal information after sending a 30-day advance notice to your registered email address. If you sign in during the notice period, no deletion will occur.</li>
           <li>Firebase Analytics data is retained in accordance with Google's data retention policies (by default, up to 14 months for event-level data).</li>
           <li>FCM tokens are deleted from my servers when you sign out or delete your account.</li>
           <li>I may retain certain records for a reasonable period after account deletion as required by law or to resolve disputes.</li>
@@ -295,7 +296,7 @@
               <tr><td class="px-4 py-2.5">Account creation and management</td><td class="px-4 py-2.5">Performance of a contract</td><td class="px-4 py-2.5">Art. 6(1)(b)</td></tr>
               <tr><td class="px-4 py-2.5">Core app functionality (streaks, progress tracking, daily goals)</td><td class="px-4 py-2.5">Performance of a contract</td><td class="px-4 py-2.5">Art. 6(1)(b)</td></tr>
               <tr><td class="px-4 py-2.5">Competition and social features (Elo rating, matches, friends)</td><td class="px-4 py-2.5">Performance of a contract</td><td class="px-4 py-2.5">Art. 6(1)(b)</td></tr>
-              <tr><td class="px-4 py-2.5">Personalisation (colour themes, avatar)</td><td class="px-4 py-2.5">Performance of a contract</td><td class="px-4 py-2.5">Art. 6(1)(b)</td></tr>
+              <tr><td class="px-4 py-2.5">Personalisation (colour themes, avatar)</td><td class="px-4 py-2.5">Legitimate interests</td><td class="px-4 py-2.5">Art. 6(1)(f)</td></tr>
               <tr><td class="px-4 py-2.5">Subscription processing and verification</td><td class="px-4 py-2.5">Performance of a contract</td><td class="px-4 py-2.5">Art. 6(1)(b)</td></tr>
               <tr><td class="px-4 py-2.5">Push notifications (streak reminders, friend requests, challenges)</td><td class="px-4 py-2.5">Consent</td><td class="px-4 py-2.5">Art. 6(1)(a)</td></tr>
               <tr><td class="px-4 py-2.5">Analytics and app improvement</td><td class="px-4 py-2.5">Legitimate interests</td><td class="px-4 py-2.5">Art. 6(1)(f)</td></tr>
@@ -304,7 +305,7 @@
             </tbody>
           </table>
         </div>
-        <p class="mt-3"><strong class="text-fluxy-heading">Legitimate interests detail:</strong> Where I rely on legitimate interests, the specific interests pursued are: (a) understanding how users interact with the App in aggregate so I can improve functionality, fix bugs, and prioritise features (analytics); and (b) protecting the integrity of the App and its users against misuse (fraud prevention). I have conducted a balancing assessment for each and concluded that these interests are not overridden by your rights and freedoms, given that the processing is limited in scope, does not involve sensitive data, and you can object at any time (see Section 13.3 below).</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Legitimate interests detail:</strong> Where I rely on legitimate interests, the specific interests pursued are: (a) understanding how users interact with the App in aggregate so I can improve functionality, fix bugs, and prioritise features (analytics); (b) protecting the integrity of the App and its users against misuse (fraud prevention); and (c) storing optional personalisation preferences (colour themes, avatar configuration) to enhance the user experience across sessions. I have conducted a balancing assessment for each and concluded that these interests are not overridden by your rights and freedoms, given that the processing is limited in scope, does not involve sensitive data, personalisation data is entirely user-initiated and optional, and you can object at any time (see Section 13.3 below).</p>
 
         <h3 class="text-lg font-semibold text-fluxy-heading mt-6 mb-2">13.3 Your GDPR Rights</h3>
         <p class="mb-3">Under the GDPR and UK GDPR, you have the following rights in relation to your personal data:</p>
@@ -343,6 +344,9 @@
           <li>The <strong class="text-fluxy-heading">Federal Data Protection and Information Commissioner (FDPIC)</strong> if you are in Switzerland — <a href="https://www.edoeb.admin.ch" class="text-fluxy-amber hover:underline">edoeb.admin.ch</a>.</li>
         </ul>
         <p class="mt-3">I would appreciate the opportunity to address your concerns before you approach a supervisory authority — please contact me first at hello@getfluxy.app.</p>
+
+        <h3 class="text-lg font-semibold text-fluxy-heading mt-6 mb-2">13.8 Data Protection Impact Assessment</h3>
+        <p>I have assessed the processing activities described in this policy against the criteria in GDPR Article 35 and the relevant guidelines issued by the European Data Protection Board. I have determined that a formal Data Protection Impact Assessment (DPIA) is not required, as the processing does not involve systematic and extensive profiling producing legal or similarly significant effects, large-scale processing of special categories of data, or systematic monitoring of publicly accessible areas. The Elo-based skill rating used in competition mode is automated profiling used solely to improve the fairness of in-app matchmaking and does not produce legal effects or similarly significant effects on users.</p>
       </section>
 
       <!-- 14 -->
@@ -387,7 +391,8 @@
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">16. Analytics and Tracking</h2>
         <p>I use Firebase Analytics to collect aggregated, anonymised data about how users interact with the App (e.g. sign-up method, feature usage, purchase events). This data helps me improve the App. Firebase Analytics data may be processed and stored in the United States by Google.</p>
         <p class="mt-3"><strong class="text-fluxy-heading">Tracking:</strong> Fluxy does not track you across other companies' apps or websites. I do not use the Identifier for Advertisers (IDFA), I do not display ads, and I do not participate in advertising networks. As a result, the App does not present an App Tracking Transparency (ATT) prompt. The Privacy Manifest (<code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">PrivacyInfo.xcprivacy</code>) declares <code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">NSPrivacyTracking = false</code>.</p>
-        <p class="mt-3"><strong class="text-fluxy-heading">Opting out:</strong> You can limit Firebase Analytics data collection by disabling analytics data sharing in your iOS privacy settings (Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements). Firebase Analytics does not support individual user opt-out directly; however, because I do not use this data for tracking or advertising, it does not affect your privacy in a material way.</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Opting out:</strong> You can limit Firebase Analytics data collection by disabling analytics data sharing in your iOS privacy settings (Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements). If you are located in the EEA, UK, or Switzerland and wish to exercise your right to object to analytics processing under GDPR Article 21, contact me at hello@getfluxy.app and I will disable analytics data collection for your account.</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Local storage:</strong> The App stores certain data locally on your device using standard iOS storage mechanisms (UserDefaults), including streak cache, notification preferences, and streak revival state. This data does not leave your device and is used solely to improve app responsiveness and reduce unnecessary network requests. It is cleared when you sign out or delete the App.</p>
       </section>
 
       <!-- 17 -->
@@ -399,7 +404,7 @@
       <!-- 18 -->
       <section>
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">18. Changes to This Privacy Policy</h2>
-        <p>I may update this Privacy Policy from time to time. I will notify you of material changes by updating the "Last updated" date at the top of this document and, where appropriate, by in-app notification. Your continued use of the App after changes are posted constitutes your acceptance of the updated policy.</p>
+        <p>I may update this Privacy Policy from time to time. I will notify you of material changes by updating the "Last updated" date at the top of this document and, where appropriate, by in-app notification at least 14 days before the changes take effect. Your continued use of the App after the changes take effect constitutes your acceptance of the updated policy. Where I materially expand the scope of processing that is based on your consent, I will seek fresh consent before processing your data for the new purpose.</p>
       </section>
 
       <!-- 19 -->
