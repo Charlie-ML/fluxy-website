@@ -5,7 +5,9 @@
       "Bash(npm install katex 2>&1)",
       "Bash(npx vite --host 2>&1)",
       "Bash(sleep 4 && curl -s http://localhost:5173 | head -20)",
-      "Bash(npx vite build 2>&1)"
+      "Bash(npx vite build 2>&1)",
+      "Bash(npm run:*)",
+      "Bash(git add:*)"
     ]
   }
 }
