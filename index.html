@@ -19,8 +19,16 @@
 </head>
 <body class="font-sans antialiased">
 
+  <!-- Noise texture -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient background blobs -->
+  <div class="ambient-bg">
+    <div class="ambient-blob-gold"></div>
+  </div>
+
   <!-- ===== NAVBAR ===== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-fluxy-bg/80 backdrop-blur-xl border-b border-fluxy-border-light">
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5">
         <img src="/fluxy_logo.jpg" alt="Fluxy" class="w-8 h-8 rounded-lg shadow-sm" />
@@ -33,7 +41,7 @@
         <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Streaks</a>
         <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Pricing</a>
         <a href="#contact" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium">Contact</a>
-        <a href="#waitlist" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-fluxy-heading/90 transition">Join Waitlist</a>
+        <a href="#waitlist" class="bg-fluxy-gold text-[#1E293B] font-semibold text-sm px-5 py-2 rounded-full hover:bg-fluxy-gold-dim transition shadow-lg shadow-fluxy-gold/20">Join Waitlist</a>
       </div>
 
       <button id="nav-toggle" class="md:hidden text-fluxy-heading" aria-label="Toggle menu" aria-expanded="false">
@@ -43,80 +51,95 @@
       </button>
     </div>
 
-    <div id="mobile-menu" class="mobile-menu md:hidden bg-fluxy-bg/98 border-t border-fluxy-border-light px-6">
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white/95 backdrop-blur-xl border-t border-fluxy-border-light px-6">
       <div class="flex flex-col gap-3 py-4">
         <a href="#features" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Features</a>
         <a href="#competition" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Competition</a>
         <a href="#streaks" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Streaks</a>
         <a href="#pricing" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Pricing</a>
         <a href="#contact" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium py-1">Contact</a>
-        <a href="#waitlist" class="bg-fluxy-heading text-white font-medium text-sm px-5 py-2.5 rounded-full text-center hover:bg-fluxy-heading/90 transition mt-1">Join Waitlist</a>
+        <a href="#waitlist" class="bg-fluxy-gold text-[#1E293B] font-semibold text-sm px-5 py-2.5 rounded-full text-center hover:bg-fluxy-gold-dim transition mt-1">Join Waitlist</a>
       </div>
     </div>
   </nav>
 
   <!-- ===== COMING SOON BANNER ===== -->
   <div class="fixed top-16 left-0 right-0 z-40 coming-soon-banner">
-    <div class="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 py-2.5 px-6 text-center">
-      <p class="text-fluxy-heading text-sm font-semibold tracking-wide">
+    <div class="bg-gradient-to-r from-fluxy-slate via-fluxy-slate-light to-fluxy-slate py-2.5 px-6 text-center">
+      <p class="text-white text-sm font-semibold tracking-wide">
         Coming to iOS in 2026 —
         <a href="#waitlist" class="underline underline-offset-2 hover:no-underline">join the beta waitlist</a>
-        <span class="inline-block ml-2 bg-fluxy-heading text-amber-400 text-xs font-bold px-2.5 py-0.5 rounded-full">2026</span>
+        <span class="inline-block ml-2 bg-white/15 text-white text-xs font-bold px-2.5 py-0.5 rounded-full backdrop-blur-sm">2026</span>
       </p>
     </div>
   </div>
 
+  <div class="content-layer">
+
   <!-- ===== HERO ===== -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-16">
-    <div class="reveal-scale">
-      <img src="/fluxy_logo.jpg" alt="Fluxy Logo" class="w-24 h-24 md:w-32 md:h-32 rounded-[1.75rem] shadow-lg shadow-amber-200/40 mx-auto mb-12" />
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 relative overflow-hidden">
+
+    <!-- Hero gradient backdrop -->
+    <div class="hero-mesh" aria-hidden="true"></div>
+
+    <!-- Floating math symbols -->
+    <div class="hero-float-symbols" aria-hidden="true">
+      <span class="float-symbol" style="--x: 8%; --y: 20%; --delay: 0s; --duration: 18s;">+</span>
+      <span class="float-symbol" style="--x: 85%; --y: 15%; --delay: 2s; --duration: 22s;">&pi;</span>
+      <span class="float-symbol" style="--x: 15%; --y: 70%; --delay: 4s; --duration: 20s;">&sum;</span>
+      <span class="float-symbol" style="--x: 78%; --y: 65%; --delay: 1s; --duration: 24s;">&int;</span>
+      <span class="float-symbol" style="--x: 45%; --y: 85%; --delay: 3s; --duration: 19s;">&infin;</span>
+      <span class="float-symbol" style="--x: 92%; --y: 45%; --delay: 5s; --duration: 21s;">&theta;</span>
+      <span class="float-symbol" style="--x: 5%; --y: 45%; --delay: 6s; --duration: 23s;">f&prime;</span>
     </div>
 
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-fluxy-heading leading-[1.08] tracking-tight mb-7">
+    <div class="reveal-scale hero-logo-glow relative z-10">
+      <img src="/fluxy_logo.jpg" alt="Fluxy Logo" class="w-24 h-24 md:w-32 md:h-32 rounded-[1.75rem] shadow-2xl shadow-amber-200/30 mx-auto mb-12 border border-white/20" />
+    </div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-fluxy-heading leading-[1.08] tracking-tight mb-7 relative z-10">
       <span class="reveal inline-block" style="transition-delay: 100ms">Mathematics Practice</span><br />
       <span class="reveal inline-block gradient-text" style="transition-delay: 280ms">Perfected</span>
     </h1>
 
-    <p class="reveal text-lg md:text-xl text-fluxy-text max-w-lg mb-8 leading-relaxed" style="transition-delay: 420ms">
+    <p class="reveal text-lg md:text-xl text-fluxy-text max-w-lg mb-8 leading-relaxed relative z-10" style="transition-delay: 420ms">
       Exact symbolic math.<br />
       No decimals. No approximations.<br />
       Just precision.
     </p>
 
-    <div class="reveal inline-flex items-center gap-2 bg-fluxy-surface border border-fluxy-border rounded-full px-4 py-2 mb-14 shadow-sm" style="transition-delay: 500ms">
-      <svg class="w-4 h-4 text-fluxy-heading" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <div class="reveal inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 mb-14 relative z-10" style="transition-delay: 500ms">
+      <svg class="w-4 h-4 text-fluxy-slate" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <span class="text-fluxy-text text-sm font-medium">Designed exclusively for iOS</span>
     </div>
 
     <!-- Hero KaTeX -->
-    <div class="reveal-scale mb-16 katex-hero" style="transition-delay: 560ms">
-      <div class="bg-fluxy-equation-bg rounded-2xl px-8 py-5 glow-pulse equation-accent">
+    <div class="reveal-scale mb-16 katex-hero relative z-10" style="transition-delay: 560ms">
+      <div class="equation-glass rounded-2xl px-8 py-5 glow-pulse equation-accent">
         <div data-katex="\frac{d}{dx}\!\left(x^3\right) = 3x^2" data-display class="text-white"></div>
       </div>
     </div>
 
     <!-- Waitlist CTA -->
-    <div id="waitlist" class="reveal w-full max-w-md mx-auto" style="transition-delay: 680ms">
-      <form id="hero-waitlist-form" class="waitlist-form bg-fluxy-surface border border-fluxy-border rounded-2xl p-6 shadow-sm">
+    <div id="waitlist" class="reveal w-full max-w-md mx-auto relative z-10" style="transition-delay: 680ms">
+      <form id="hero-waitlist-form" class="waitlist-form glass-card rounded-2xl p-6">
         <h3 class="text-fluxy-heading font-bold text-lg mb-1 text-center">Join the Beta Waitlist</h3>
         <p class="text-fluxy-muted text-sm mb-5 text-center">Be the first to try Fluxy when it launches.</p>
 
         <div class="space-y-3">
           <input type="text" name="name" placeholder="Your name" required
-            class="w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+            class="glass-input w-full px-4 py-2.5 rounded-xl text-fluxy-heading text-sm placeholder:text-fluxy-muted" />
 
-          <!-- Contact type toggle -->
-          <div class="flex items-center gap-2 bg-fluxy-bg rounded-xl p-1 border border-fluxy-border">
+          <div class="flex items-center gap-2 bg-fluxy-surface-alt/80 rounded-xl p-1 border border-fluxy-border-light">
             <button type="button" class="contact-toggle active flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="email">Email</button>
             <button type="button" class="contact-toggle flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="phone">Phone</button>
           </div>
 
           <input type="email" name="contact" placeholder="you@email.com" required
-            class="contact-input w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
-
+            class="contact-input glass-input w-full px-4 py-2.5 rounded-xl text-fluxy-heading text-sm placeholder:text-fluxy-muted" />
         </div>
 
-        <button type="submit" class="w-full mt-4 bg-fluxy-heading text-white font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-heading/90 transition shadow-sm">
+        <button type="submit" class="w-full mt-4 bg-fluxy-gold text-[#1E293B] font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-gold-dim transition shadow-lg shadow-fluxy-gold/20">
           Join the Waitlist
         </button>
 
@@ -125,18 +148,25 @@
       </form>
     </div>
 
-    <div class="bounce-down text-fluxy-muted">
+    <div class="bounce-down text-fluxy-muted mt-8 relative z-10">
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
       </svg>
     </div>
   </section>
 
+  <!-- Wave: Hero → Features -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#EEF1F5" fill-opacity="0.6"/>
+    </svg>
+  </div>
+
   <!-- ===== FEATURES ===== -->
-  <section id="features" class="py-28 md:py-36 px-6 section-alt">
-    <div class="max-w-6xl mx-auto">
+  <section id="features" class="py-28 md:py-36 px-6 section-alt section-glow section-glow-left">
+    <div class="max-w-6xl mx-auto relative">
       <div class="text-center mb-20 reveal">
-        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
+        <p class="text-fluxy-teal font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
         <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Six Topics. Infinite Practice.</h2>
         <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed">Every answer is exact symbolic math — never a decimal approximation.</p>
       </div>
@@ -144,73 +174,73 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 reveal-stagger">
 
         <!-- Numbers -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>#</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Numbers</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Lightning-fast mental arithmetic with instant feedback.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="48 \times 17 = \;?" data-display class="text-white"></div>
           </div>
         </div>
 
         <!-- Trig Exact Values -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>&theta;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Trig Exact Values</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Recall exact trigonometric values at all standard angles.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="\sin\!\bigl(\tfrac{\pi}{3}\bigr) = \tfrac{\sqrt{3}}{2}" data-display class="text-white"></div>
           </div>
         </div>
 
         <!-- Differentiation -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>f&prime;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Differentiation</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Differentiate polynomials, trig functions, and more.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="\tfrac{d}{dx}\!\bigl(5x^3 - 2x\bigr) = 15x^2 - 2" data-display class="text-white"></div>
           </div>
         </div>
 
         <!-- Antidifferentiation -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>&int;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Antidifferentiation</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Find antiderivatives with exact symbolic results.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="\textstyle\int \sin(x)\,dx = -\cos(x) + C" data-display class="text-white"></div>
           </div>
         </div>
 
         <!-- Complex Numbers -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>&Copf;</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Complex Numbers</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Convert between Cartesian and polar form instantly.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="3 + 3i = 3\!\sqrt{2}\;\text{cis}\!\bigl(\tfrac{\pi}{4}\bigr)" data-display class="text-white"></div>
           </div>
         </div>
 
         <!-- Log & Index Laws -->
-        <div class="reveal-scale topic-card katex-card bg-fluxy-surface border border-fluxy-border rounded-2xl p-7 shadow-sm">
+        <div class="reveal-scale topic-card katex-card rounded-2xl p-7">
           <div class="icon-circle icon-circle-text mb-5">
             <span>log</span>
           </div>
           <h3 class="text-fluxy-heading font-semibold text-base mb-1.5">Log &amp; Index Laws</h3>
           <p class="text-fluxy-text text-sm mb-5 leading-relaxed">Master logarithmic and index law manipulation.</p>
-          <div class="bg-fluxy-equation-bg rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
+          <div class="equation-glass rounded-xl px-4 py-3.5 katex-equation-box equation-accent">
             <div data-katex="\log_2\!8 + \log_2\!4 = 3 + 2 = 5" data-display class="text-white"></div>
           </div>
         </div>
@@ -219,15 +249,22 @@
     </div>
   </section>
 
+  <!-- Wave: Features → Competition -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,30 C480,70 960,10 1440,50 L1440,80 L0,80 Z" fill="#F4F6F9"/>
+    </svg>
+  </div>
+
   <!-- ===== COMPETITION MODE ===== -->
-  <section id="competition" class="py-28 md:py-36 px-6">
-    <div class="max-w-6xl mx-auto">
+  <section id="competition" class="py-28 md:py-36 px-6 section-glow section-glow-right">
+    <div class="max-w-6xl mx-auto relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
         <!-- Text -->
         <div>
           <div class="reveal">
-            <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Competition</p>
+            <p class="text-fluxy-purple font-semibold text-sm uppercase tracking-wider mb-3">Competition</p>
             <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">
               Challenge Your Friends.<br /><span class="gradient-text">Prove You're Better.</span>
             </h2>
@@ -287,22 +324,19 @@
                 <div class="text-fluxy-heading font-semibold text-sm">Player A</div>
                 <div class="text-fluxy-muted text-xs">Elo 1247</div>
               </div>
-              <div class="text-amber-600 font-bold text-xl">3</div>
+              <div class="text-fluxy-gold-dim font-bold text-xl">3</div>
             </div>
 
             <!-- Shared question -->
-            <div class="bg-fluxy-equation-bg rounded-2xl p-5 text-center katex-card shadow-lg equation-accent">
+            <div class="equation-glass rounded-2xl p-5 text-center katex-card shadow-lg equation-accent">
               <p class="text-white/50 text-xs uppercase tracking-wider mb-3 font-medium">Round 4 of 5</p>
               <div class="katex-equation-box">
                 <div data-katex="36 \times 24 = \;?" data-display class="text-white"></div>
               </div>
               <div class="flex items-center justify-center gap-1.5 mt-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
-
-                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
-
-                <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
-
+                <div class="w-1.5 h-1.5 rounded-full bg-fluxy-gold"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-fluxy-gold"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-fluxy-gold"></div>
                 <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
                 <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
               </div>
@@ -324,11 +358,18 @@
     </div>
   </section>
 
+  <!-- Wave: Competition → Streaks -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,50 C360,10 720,70 1080,30 C1260,15 1380,25 1440,20 L1440,80 L0,80 Z" fill="#EEF1F5" fill-opacity="0.6"/>
+    </svg>
+  </div>
+
   <!-- ===== STREAKS & PROGRESS ===== -->
-  <section id="streaks" class="py-28 md:py-36 px-6 section-alt">
-    <div class="max-w-6xl mx-auto">
+  <section id="streaks" class="py-28 md:py-36 px-6 section-alt section-glow section-glow-left">
+    <div class="max-w-6xl mx-auto relative">
       <div class="text-center mb-20 reveal">
-        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Streaks</p>
+        <p class="text-fluxy-gold-dim font-semibold text-sm uppercase tracking-wider mb-3">Streaks</p>
         <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Build Your Streak. <span class="gradient-text">Build Your Skills.</span></h2>
         <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed">Complete daily question targets to grow your streak. Miss a day and it resets — unless you have a life.</p>
       </div>
@@ -336,14 +377,14 @@
       <!-- Streak counter -->
       <div class="text-center mb-20 reveal-zoom">
         <div class="inline-flex flex-col items-center">
-          <div class="text-7xl md:text-8xl font-extrabold text-fluxy-heading leading-none tabular-nums" data-count-to="47">0</div>
+          <div class="text-7xl md:text-8xl font-extrabold leading-none tabular-nums streak-glow" data-count-to="47">0</div>
           <p class="text-fluxy-muted text-base font-medium mt-2">day streak</p>
         </div>
       </div>
 
       <!-- Streak lives -->
       <div class="reveal text-center mt-12">
-        <div class="inline-flex items-center gap-2.5 bg-fluxy-surface border border-fluxy-border rounded-full px-5 py-2.5 shadow-sm">
+        <div class="inline-flex items-center gap-2.5 glass-card rounded-full px-5 py-2.5">
           <svg class="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           <p class="text-fluxy-text text-sm">Premium members get <strong class="text-fluxy-heading">2 lives/month</strong> to protect their streak.</p>
         </div>
@@ -351,11 +392,18 @@
     </div>
   </section>
 
+  <!-- Wave: Streaks → Pricing -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,30 C480,70 960,10 1440,50 L1440,80 L0,80 Z" fill="#F4F6F9"/>
+    </svg>
+  </div>
+
   <!-- ===== PRICING ===== -->
-  <section id="pricing" class="py-28 md:py-36 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section id="pricing" class="py-28 md:py-36 px-6 section-glow section-glow-right">
+    <div class="max-w-5xl mx-auto relative">
       <div class="text-center mb-20 reveal">
-        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
+        <p class="text-fluxy-teal font-semibold text-sm uppercase tracking-wider mb-3">Pricing</p>
         <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-4">Free to Start. <span class="gradient-text">Premium to Master.</span></h2>
       </div>
 
@@ -363,7 +411,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-3xl mx-auto reveal-stagger">
 
         <!-- Free plan -->
-        <div class="reveal-scale bg-fluxy-surface border border-fluxy-border rounded-2xl p-8 shadow-sm">
+        <div class="reveal-scale glass-card rounded-2xl p-8">
           <h3 class="text-fluxy-heading font-bold text-xl mb-1">Free</h3>
           <p class="text-fluxy-muted text-sm mb-6">Get started with the essentials</p>
 
@@ -398,69 +446,79 @@
             </li>
           </ul>
 
-          <a href="#waitlist" class="block text-center bg-fluxy-surface-alt text-fluxy-heading font-semibold text-sm py-3 rounded-xl border border-fluxy-border hover:bg-fluxy-border-light transition">
+          <a href="#waitlist" class="block text-center text-fluxy-heading font-semibold text-sm py-3 rounded-xl border-2 border-fluxy-slate/20 hover:border-fluxy-slate/40 bg-transparent transition">
             Join the Waitlist
           </a>
         </div>
 
         <!-- Premium plan -->
-        <div class="reveal-scale bg-fluxy-heading rounded-2xl p-8 relative premium-glow">
+        <div class="reveal-scale premium-card premium-glow rounded-2xl p-8">
+          <div class="relative z-10">
 
           <h3 class="text-white font-bold text-xl mb-1">Premium</h3>
-          <p class="text-stone-400 text-sm mb-6">Unlimited practice, full access</p>
+          <p class="text-slate-400 text-sm mb-6">Unlimited practice, full access</p>
 
           <!-- Price with toggle -->
           <div class="mb-6">
             <div class="flex items-center gap-3 mb-4">
-              <span class="text-stone-400 text-sm font-medium hidden" data-price="monthly">Monthly</span>
+              <span class="text-slate-400 text-sm font-medium hidden" data-price="monthly">Monthly</span>
               <span class="text-white text-sm font-medium" data-price="yearly">Monthly</span>
               <div id="pricing-toggle" class="pricing-toggle active"></div>
-              <span class="text-stone-400 text-sm font-medium hidden" data-price="monthly">Yearly</span>
+              <span class="text-slate-400 text-sm font-medium hidden" data-price="monthly">Yearly</span>
               <span class="text-white text-sm font-medium" data-price="yearly">Yearly</span>
             </div>
             <div data-price="monthly" class="hidden">
               <span class="text-4xl font-extrabold text-white">$4.99</span>
-              <span class="text-stone-400 text-sm"> / month</span>
+              <span class="text-slate-400 text-sm"> / month</span>
             </div>
             <div data-price="yearly">
               <span class="text-4xl font-extrabold text-white">$39.99</span>
-              <span class="text-stone-400 text-sm"> / year</span>
-              <p class="text-amber-400 text-sm font-medium mt-1">Save 33% — just $3.33/month</p>
+              <span class="text-slate-400 text-sm"> / year</span>
+              <p class="text-fluxy-gold text-sm font-medium mt-1">Save 33% — just $3.33/month</p>
             </div>
-            <p class="text-stone-500 text-xs mt-1.5">Prices in AUD</p>
+            <p class="text-slate-500 text-xs mt-1.5">Prices in AUD</p>
           </div>
 
           <ul class="space-y-3 text-sm mb-8">
             <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-stone-300"><strong class="text-white">Unlimited</strong> questions in all topics</span>
+              <svg class="w-4 h-4 text-fluxy-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-slate-300"><strong class="text-white">Unlimited</strong> questions in all topics</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-stone-300"><strong class="text-white">Unlimited</strong> daily competitions</span>
+              <svg class="w-4 h-4 text-fluxy-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-slate-300"><strong class="text-white">Unlimited</strong> daily competitions</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-stone-300"><strong class="text-white">2 streak lives</strong> per month</span>
+              <svg class="w-4 h-4 text-fluxy-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-slate-300"><strong class="text-white">2 streak lives</strong> per month</span>
             </li>
             <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-stone-300">Custom <strong class="text-white">colour themes</strong></span>
+              <svg class="w-4 h-4 text-fluxy-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-slate-300">Custom <strong class="text-white">colour themes</strong></span>
             </li>
             <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-stone-300">Full <strong class="text-white">profile customisation</strong></span>
+              <svg class="w-4 h-4 text-fluxy-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-slate-300">Full <strong class="text-white">profile customisation</strong></span>
             </li>
           </ul>
 
-          <a href="#waitlist" class="block text-center bg-amber-400 text-fluxy-heading font-bold text-sm py-3 rounded-xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/20">
+          <a href="#waitlist" class="block text-center bg-fluxy-gold text-[#1E293B] font-bold text-sm py-3 rounded-xl hover:bg-fluxy-gold-dim transition shadow-lg shadow-fluxy-gold/20">
             Join the Waitlist
           </a>
+
+          </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Wave: Pricing → Final CTA -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,50 C360,10 720,70 1080,30 C1260,15 1380,25 1440,20 L1440,80 L0,80 Z" fill="#EEF1F5" fill-opacity="0.6"/>
+    </svg>
+  </div>
 
   <!-- ===== FINAL CTA ===== -->
   <section id="download" class="py-28 md:py-36 px-6 section-alt">
@@ -471,27 +529,27 @@
       </div>
 
       <div class="reveal-scale mb-12 katex-hero">
-        <div class="inline-block bg-fluxy-equation-bg rounded-2xl px-8 py-5 shadow-lg glow-pulse equation-accent">
+        <div class="inline-block equation-glass rounded-2xl px-8 py-5 shadow-lg glow-pulse equation-accent">
           <div data-katex="\displaystyle\int \!\cos(x)\,dx = \sin(x) + C" data-display class="text-white"></div>
         </div>
       </div>
 
       <div class="reveal w-full max-w-md mx-auto" style="transition-delay: 200ms">
-        <form id="footer-waitlist-form" class="waitlist-form bg-fluxy-surface border border-fluxy-border rounded-2xl p-6 shadow-sm text-left">
+        <form id="footer-waitlist-form" class="waitlist-form glass-card rounded-2xl p-6 text-left">
           <div class="space-y-3">
             <input type="text" name="name" placeholder="Your name" required
-              class="w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+              class="glass-input w-full px-4 py-2.5 rounded-xl text-fluxy-heading text-sm placeholder:text-fluxy-muted" />
 
-            <div class="flex items-center gap-2 bg-fluxy-bg rounded-xl p-1 border border-fluxy-border">
+            <div class="flex items-center gap-2 bg-fluxy-surface-alt/80 rounded-xl p-1 border border-fluxy-border-light">
               <button type="button" class="contact-toggle active flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="email">Email</button>
               <button type="button" class="contact-toggle flex-1 text-sm font-medium py-2 rounded-lg transition-all" data-type="phone">Phone</button>
             </div>
 
             <input type="email" name="contact" placeholder="you@email.com" required
-              class="contact-input w-full px-4 py-2.5 rounded-xl border border-fluxy-border bg-fluxy-bg text-fluxy-heading text-sm placeholder:text-fluxy-muted focus:outline-none focus:border-fluxy-amber focus:ring-1 focus:ring-fluxy-amber/30 transition" />
+              class="contact-input glass-input w-full px-4 py-2.5 rounded-xl text-fluxy-heading text-sm placeholder:text-fluxy-muted" />
           </div>
 
-          <button type="submit" class="w-full mt-4 bg-fluxy-heading text-white font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-heading/90 transition shadow-sm">
+          <button type="submit" class="w-full mt-4 bg-fluxy-gold text-[#1E293B] font-semibold text-sm py-3 rounded-xl hover:bg-fluxy-gold-dim transition shadow-lg shadow-fluxy-gold/20">
             Join the Waitlist
           </button>
 
@@ -502,37 +560,46 @@
     </div>
   </section>
 
+  <!-- Wave: Final CTA → Contact -->
+  <div class="section-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,30 C480,70 960,10 1440,50 L1440,80 L0,80 Z" fill="#F4F6F9"/>
+    </svg>
+  </div>
+
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="py-28 md:py-36 px-6">
     <div class="max-w-3xl mx-auto text-center">
       <div class="reveal">
-        <p class="text-fluxy-amber font-semibold text-sm uppercase tracking-wider mb-3">Contact</p>
+        <p class="text-fluxy-purple font-semibold text-sm uppercase tracking-wider mb-3">Contact</p>
         <h2 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Get in Touch</h2>
         <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">Have a question, suggestion, or just want to say hello? We'd love to hear from you.</p>
       </div>
 
       <div class="reveal-scale">
-        <a href="mailto:hello@getfluxy.app" class="inline-flex items-center gap-3 bg-fluxy-surface border border-fluxy-border rounded-2xl px-8 py-5 shadow-sm hover:shadow-md hover:border-fluxy-border-light transition-all group">
-          <svg class="w-6 h-6 text-fluxy-amber shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <a href="mailto:hello@getfluxy.app" class="inline-flex items-center gap-3 glass-card rounded-2xl px-8 py-5 hover:shadow-lg transition-all group">
+          <svg class="w-6 h-6 text-fluxy-teal shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
           </svg>
-          <span class="text-fluxy-heading font-semibold text-lg group-hover:text-fluxy-amber transition-colors">hello@getfluxy.app</span>
+          <span class="text-fluxy-heading font-semibold text-lg group-hover:text-fluxy-teal transition-colors">hello@getfluxy.app</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="border-t border-fluxy-border-light py-10 px-6 reveal">
+  <footer class="border-t border-fluxy-border-light py-10 px-6 reveal" style="background: linear-gradient(180deg, transparent, rgba(112, 128, 144, 0.03));">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-fluxy-muted text-sm">&copy; 2026 Fluxy. Built with precision.</p>
       <div class="flex items-center gap-6">
         <a href="/privacy" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Privacy Policy</a>
         <a href="/terms" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Terms of Service</a>
-        <a href="https://www.charliesabin.com" target="_blank" rel="noopener noreferrer" class="text-fluxy-muted hover:text-fluxy-heading text-sm font-medium transition-colors border-l border-fluxy-border-light pl-6">Founder</a>
+        <a href="https://www.charliesabin.com" target="_blank" rel="noopener noreferrer" class="text-fluxy-muted hover:text-fluxy-heading text-sm font-medium transition-colors border-l border-fluxy-border pl-6">Founder</a>
       </div>
     </div>
   </footer>
+
+  </div><!-- /content-layer -->
 
   <script type="module" src="/main.js"></script>
 </body>
