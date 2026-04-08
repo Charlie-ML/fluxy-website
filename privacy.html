@@ -39,7 +39,7 @@
   <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
 
     <h1 class="text-3xl md:text-4xl font-extrabold text-fluxy-heading tracking-tight mb-2">Privacy Policy</h1>
-    <p class="text-fluxy-muted text-sm mb-10">Last updated: 5 April 2026</p>
+    <p class="text-fluxy-muted text-sm mb-10">Last updated: 9 April 2026</p>
 
     <div class="space-y-10 text-fluxy-text leading-relaxed">
 
@@ -76,7 +76,7 @@
           <li><strong class="text-fluxy-heading">Daily and lifetime question counts</strong> — the number of questions you answer correctly per topic each day, and cumulative lifetime totals per topic.</li>
           <li><strong class="text-fluxy-heading">Streak data</strong> — your current streak length (days), whether today's goal has been completed, last active date, and streak lives balance.</li>
           <li><strong class="text-fluxy-heading">Competition data</strong> — Elo rating, matches played, won, lost, and drawn; today's match count.</li>
-          <li><strong class="text-fluxy-heading">Session events</strong> — sign-up method, purchase completion (plan tier and display price), and other in-app events sent to Firebase Analytics.</li>
+          <li><strong class="text-fluxy-heading">Session events</strong> — in-app behaviour events sent to Firebase Analytics, including: sign-in method and outcome; onboarding subject selection; paywall views and plan tab selections; purchase failures and subscription restores; topics practised, difficulty levels selected, and incorrect answer occurrences; streak revival interactions; friend request actions (sent, accepted, declined, removed); competition and matchmaking events (matchmaking start, opponent found, bot fallback, cancellation, challenge creation and decline, match forfeits); navigation events (screens visited such as profile, friends, leaderboard, and competition); and account deletion (including streak length and Elo rating at time of deletion). Analytics collection can be disabled via the toggle in Settings within the App.</li>
         </ul>
 
         <h3 class="text-lg font-semibold text-fluxy-heading mt-6 mb-2">3.3 Subscription and Purchase Data</h3>
@@ -389,9 +389,9 @@
       <!-- 16 -->
       <section>
         <h2 class="text-xl font-bold text-fluxy-heading mb-3">16. Analytics and Tracking</h2>
-        <p>I use Firebase Analytics to collect aggregated, anonymised data about how users interact with the App (e.g. sign-up method, feature usage, purchase events). This data helps me improve the App. Firebase Analytics data may be processed and stored in the United States by Google.</p>
+        <p>I use Firebase Analytics to collect data about how users interact with the App. The types of events collected include: authentication events (sign-in method, success/failure); onboarding interactions (VCE subject selection or skip); paywall and purchase events (plan tab changes, purchase failures, subscription restores); practice behaviour (topics entered, difficulty changes, incorrect answers); streak interactions (revival shown, declined, or tapped); social actions (friend requests sent, accepted, declined, and friend removals); competition and matchmaking events (search start, opponent found, bot fallback, cancellation, challenge creation and decline, forfeits, with match type and duration); navigation events (profile, friends, leaderboard, competition, and settings screens viewed); and account lifecycle events (sign-out, account deletion with streak length and Elo at time of deletion). This data helps me understand how the App is used and prioritise improvements. Firebase Analytics data may be processed and stored in the United States by Google.</p>
         <p class="mt-3"><strong class="text-fluxy-heading">Tracking:</strong> Fluxy does not track you across other companies' apps or websites. I do not use the Identifier for Advertisers (IDFA), I do not display ads, and I do not participate in advertising networks. As a result, the App does not present an App Tracking Transparency (ATT) prompt. The Privacy Manifest (<code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">PrivacyInfo.xcprivacy</code>) declares <code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">NSPrivacyTracking = false</code>.</p>
-        <p class="mt-3"><strong class="text-fluxy-heading">Opting out:</strong> You can limit Firebase Analytics data collection by disabling analytics data sharing in your iOS privacy settings (Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements). If you are located in the EEA, UK, or Switzerland and wish to exercise your right to object to analytics processing under GDPR Article 21, contact me at hello@getfluxy.app and I will disable analytics data collection for your account.</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Opting out:</strong> You can disable analytics collection at any time via the analytics toggle in <strong class="text-fluxy-heading">Settings</strong> within the App (Profile &rarr; Settings &rarr; Analytics). This disables all Firebase Analytics event logging globally. You can also limit Firebase Analytics data collection at the OS level via iOS Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements. If you are located in the EEA, UK, or Switzerland and wish to exercise your right to object to analytics processing under GDPR Article 21, contact me at hello@getfluxy.app and I will disable analytics data collection for your account.</p>
         <p class="mt-3"><strong class="text-fluxy-heading">Local storage:</strong> The App stores certain data locally on your device using standard iOS storage mechanisms (UserDefaults), including streak cache, notification preferences, and streak revival state. This data does not leave your device and is used solely to improve app responsiveness and reduce unnecessary network requests. It is cleared when you sign out or delete the App.</p>
       </section>
 
