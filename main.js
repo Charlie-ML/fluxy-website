@@ -1,6 +1,5 @@
 import './style.css'
 import katex from 'katex'
-import { submitWaitlistEntry } from './firebase.js'
 
 // Render all KaTeX elements
 document.querySelectorAll('[data-katex]').forEach(el => {
@@ -109,55 +108,3 @@ if (toggle) {
   })
 }
 
-// Waitlist forms — contact type toggle + submission
-document.querySelectorAll('.waitlist-form').forEach(form => {
-  let contactType = 'email'
-  const contactInput = form.querySelector('.contact-input')
-  const toggleBtns = form.querySelectorAll('.contact-toggle')
-  const errorEl = form.querySelector('.waitlist-error')
-  const successEl = form.querySelector('.waitlist-success')
-
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      contactType = btn.getAttribute('data-type')
-      toggleBtns.forEach(b => b.classList.toggle('active', b === btn))
-
-      if (contactType === 'phone') {
-        contactInput.type = 'tel'
-        contactInput.placeholder = '04XX XXX XXX'
-        contactInput.removeAttribute('pattern')
-      } else {
-        contactInput.type = 'email'
-        contactInput.placeholder = 'you@email.com'
-      }
-    })
-  })
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    errorEl.classList.add('hidden')
-    const submitBtn = form.querySelector('button[type="submit"]')
-    const name = form.querySelector('input[name="name"]').value
-    const contactValue = contactInput.value
-
-    if (!name.trim() || !contactValue.trim()) {
-      errorEl.textContent = 'Please fill in all fields.'
-      errorEl.classList.remove('hidden')
-      return
-    }
-
-    submitBtn.disabled = true
-    submitBtn.textContent = 'Submitting...'
-
-    try {
-      await submitWaitlistEntry({ name, contactType, contactValue })
-      form.classList.add('submitted')
-      successEl.classList.remove('hidden')
-    } catch (err) {
-      errorEl.textContent = 'Something went wrong. Please try again.'
-      errorEl.classList.remove('hidden')
-      submitBtn.disabled = false
-      submitBtn.textContent = 'Join the Waitlist'
-    }
-  })
-})

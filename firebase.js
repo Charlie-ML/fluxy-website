@@ -1,8 +1,6 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore'
 
-// TODO: Replace with your Firebase project config
-// Get this from Firebase Console → Project Settings → Your apps → Web app
 const firebaseConfig = {
   apiKey: "AIzaSyC8ENluqmdz7bk42f8efVihB9-DiA62LJE",
   authDomain: "fluxy-website.firebaseapp.com",
@@ -15,13 +13,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
-
-export async function submitWaitlistEntry({ name, contactType, contactValue }) {
-  const docRef = await addDoc(collection(db, 'waitlist'), {
-    name: name.trim(),
-    contactType,
-    [contactType]: contactValue.trim(),
-    createdAt: serverTimestamp(),
-  })
-  return docRef.id
-}

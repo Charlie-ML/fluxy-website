@@ -563,38 +563,6 @@ body {
 
 .flame-icon svg { width: 22px; height: 22px; }
 
-/* ── Waitlist form ── */
-.contact-toggle {
-  color: var(--color-fluxy-muted);
-  background: transparent;
-  cursor: pointer;
-  border: none;
-}
-
-.contact-toggle.active {
-  color: var(--color-fluxy-heading);
-  background: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
-}
-
-.waitlist-form button[type="submit"]:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.waitlist-form.submitted .waitlist-success { display: block; }
-
-.waitlist-form.submitted button[type="submit"],
-.waitlist-form.submitted .space-y-3,
-.waitlist-form.submitted h3,
-.waitlist-form.submitted > p:first-of-type {
-  display: none;
-}
-
-/* ── Waitlist scroll offset ── */
-#waitlist {
-  scroll-margin-top: 8rem;
-}
 
 /* ── Faster animations on mobile ── */
 @media (max-width: 767px) {
