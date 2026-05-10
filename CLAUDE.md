@@ -182,9 +182,17 @@ The selected subject is stored as `UserProfile.subject: String?` (raw value of `
 ### User Profiles & Account Management
 
 - Display name, avatar (customisable — premium only), colour theme (premium only)
-- Public stats: current streak, Elo rating
+- Public stats: current streak, Elo rating, monthly win rate
 - **Account deletion:** 3-step flow — (1) initial alert, (2) confirmation sheet requiring the user to type `DELETE` exactly before the button enables, (3) permanent deletion. This prevents accidental deletion.
 - Active subscriptions must be cancelled separately in iPhone Settings → Subscriptions before deleting the account
+
+### Match Stats & Win Rate
+
+- `matchesPlayed`, `matchesWon`, `matchesLost`, `matchesDrawn` on the Firestore `users` document are incremented **only by human matches** (SBMM + friend challenges) via the `submitMatchResult` and `submitChallengeResult` Cloud Functions. Bot matches never touch these fields.
+- `incrementMatchStats` in `UserService` only updates the in-memory `userProfile` optimistically — all Firestore persistence is server-side.
+- **Monthly Win Rate** shown on the home screen and in `UserProfileSheet` is computed by `CompetitionService.fetchMonthlyStats(uid:)` — a live Firestore query over the last 30 days across `matches` and `challenges` collections, excluding bot matches (`player2.isBot == true`). Re-fetched on app launch and on every foreground return.
+- `fetchWeeklyStats` accepts an optional `lookback` parameter (default 7 days); `fetchMonthlyStats` calls it with a 30-day window.
+- Firestore composite indexes exist for `(player1.uid, status)` and `(player2.uid, status)` on the `matches` collection (in `firestore.indexes.json`).
 
 ### Virality — Social Sharing
 
@@ -276,13 +284,13 @@ The project requires five major phases before the full product vision is complet
 - Competition is Numbers only (easy = integers, hard = fractions)
 - Duration options: 30 / 60 / 90 / 120 seconds
 
-**Elo formula** (implemented in Cloud Function `submitMatchResult`):
-- `K(elo) = elo < 1200 ? 32 : elo < 1600 ? 24 : 16` (halved for bot matches)
+**Elo formula** (implemented in Cloud Function `submitMatchResult` and mirrored client-side in `CompetitionService.calculateEloLocally`):
+- `K(elo) = elo < 1200 ? 32 : elo < 1600 ? 24 : 16`
 - `expected = 1 / (1 + 10^((opponentElo − myElo) / 400))`
-- `margin = (myScore − oppScore) / max(myScore + oppScore, 1)` → −1..1
-- `W = clamp(0.5 + margin × 0.5, 0, 1)`
+- `W = 1 / (1 + exp(-0.15 × (myScore − oppScore)))` — sigmoid win probability
 - `delta = round(K × (W − expected))`
 - Winner always gains ≥ 1; loser always loses ≥ 1
+- **Bot matches** are worth **2/3** of a human match: full delta computed first, then scaled by `2/3`, floors re-enforced. Server (`submitBotMatchResult`) and client (`calculateEloLocally(isBot: true)`) use identical order of operations to avoid rounding divergence.
 - **Forfeits:** forfeiter W=0, opponent W=1 — full Elo swing both ways
 
 **Streak break Elo penalty** (implemented client-side in `UserService.applyStreakBreakEloPenalty`):
