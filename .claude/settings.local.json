@@ -8,7 +8,8 @@
       "Bash(npx vite build 2>&1)",
       "Bash(npm run:*)",
       "Bash(git add:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git -C /Users/charliesabin/Documents/Websites/Fluxy ls-files dist)"
     ]
   }
 }

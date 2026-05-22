@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/main-BZZL2Pou.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-Cg6dFzo-.css">
+  <script type="module" crossorigin src="/assets/main-xX-_TAl1.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DX1kuVda.css">
 </head>
 <body class="font-sans antialiased">
 
@@ -41,7 +41,7 @@
   <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
 
     <h1 class="text-3xl md:text-4xl font-extrabold text-fluxy-heading tracking-tight mb-2">Privacy Policy</h1>
-    <p class="text-fluxy-muted text-sm mb-10">Last updated: 9 April 2026</p>
+    <p class="text-fluxy-muted text-sm mb-10">Last updated: 13 May 2026</p>
 
     <div class="space-y-10 text-fluxy-text leading-relaxed">
 
@@ -232,6 +232,7 @@
           <li>Firebase Analytics data is retained in accordance with Google's data retention policies (by default, up to 14 months for event-level data).</li>
           <li>FCM tokens are deleted from my servers when you sign out or delete your account.</li>
           <li>I may retain certain records for a reasonable period after account deletion as required by law or to resolve disputes.</li>
+          <li>If the Service is permanently discontinued, I will provide advance notice and allow a reasonable period for you to request your data or delete your account before servers are decommissioned. After the Service is discontinued, all remaining user data will be deleted within 90 days, except where retention is required by law. If you are in the EEA, UK, or Switzerland, you may exercise your right to data portability (Section 13.3) before the Service is decommissioned.</li>
         </ul>
       </section>
 
@@ -394,7 +395,12 @@
         <p>I use Firebase Analytics to collect data about how users interact with the App. The types of events collected include: authentication events (sign-in method, success/failure); onboarding interactions (VCE subject selection or skip); paywall and purchase events (plan tab changes, purchase failures, subscription restores); practice behaviour (topics entered, difficulty changes, incorrect answers); streak interactions (revival shown, declined, or tapped); social actions (friend requests sent, accepted, declined, and friend removals); competition and matchmaking events (search start, opponent found, bot fallback, cancellation, challenge creation and decline, forfeits, with match type and duration); navigation events (profile, friends, leaderboard, competition, and settings screens viewed); and account lifecycle events (sign-out, account deletion with streak length and Elo at time of deletion). This data helps me understand how the App is used and prioritise improvements. Firebase Analytics data may be processed and stored in the United States by Google.</p>
         <p class="mt-3"><strong class="text-fluxy-heading">Tracking:</strong> Fluxy does not track you across other companies' apps or websites. I do not use the Identifier for Advertisers (IDFA), I do not display ads, and I do not participate in advertising networks. As a result, the App does not present an App Tracking Transparency (ATT) prompt. The Privacy Manifest (<code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">PrivacyInfo.xcprivacy</code>) declares <code class="text-sm bg-fluxy-surface-alt px-1.5 py-0.5 rounded">NSPrivacyTracking = false</code>.</p>
         <p class="mt-3"><strong class="text-fluxy-heading">Opting out:</strong> You can disable analytics collection at any time via the analytics toggle in <strong class="text-fluxy-heading">Settings</strong> within the App (Profile &rarr; Settings &rarr; Analytics). This disables all Firebase Analytics event logging globally. You can also limit Firebase Analytics data collection at the OS level via iOS Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements. If you are located in the EEA, UK, or Switzerland and wish to exercise your right to object to analytics processing under GDPR Article 21, contact me at hello@getfluxy.app and I will disable analytics data collection for your account.</p>
-        <p class="mt-3"><strong class="text-fluxy-heading">Local storage:</strong> The App stores certain data locally on your device using standard iOS storage mechanisms (UserDefaults), including streak cache, notification preferences, and streak revival state. This data does not leave your device and is used solely to improve app responsiveness and reduce unnecessary network requests. It is cleared when you sign out or delete the App.</p>
+        <p class="mt-3"><strong class="text-fluxy-heading">Local storage:</strong> The App stores certain data locally on your device using standard iOS storage mechanisms, including:</p>
+        <ul class="list-disc pl-6 space-y-1.5 mt-2">
+          <li><strong class="text-fluxy-heading">UserDefaults</strong> — streak cache, notification preferences, streak revival state, and match history (up to 20 recent competition results including bot, SBMM, and friend challenge matches).</li>
+          <li><strong class="text-fluxy-heading">Keychain</strong> — small boolean flags used to prevent duplicate processing of one-time events (for example, whether a streak-break Elo penalty or revival overlay has already been shown for a given break). These contain no personally identifiable information.</li>
+        </ul>
+        <p class="mt-3">This locally stored data does not leave your device and is used solely to improve app responsiveness and reduce unnecessary network requests. UserDefaults data is cleared when you delete the App. Keychain data persists across app reinstalls on the same device and is cleared on account deletion.</p>
       </section>
 
       <!-- 17 -->
@@ -456,6 +462,7 @@
       <div class="flex gap-6">
         <a href="/privacy" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Privacy Policy</a>
         <a href="/terms" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Terms of Service</a>
+        <a href="/support" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Support</a>
       </div>
     </div>
   </footer>

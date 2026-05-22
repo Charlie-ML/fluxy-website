@@ -533,17 +533,6 @@ body {
   animation: bounce-down 2.5s ease-in-out infinite;
 }
 
-/* ── Coming soon banner shimmer ── */
-@keyframes banner-shimmer {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-
-.coming-soon-banner > div {
-  background-size: 200% auto;
-  animation: banner-shimmer 6s linear infinite;
-}
-
 /* ── Noise texture overlay ── */
 .noise-overlay {
   position: fixed;
