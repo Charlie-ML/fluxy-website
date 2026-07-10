@@ -98,13 +98,26 @@ if (navToggle && mobileMenu) {
 const toggle = document.getElementById('pricing-toggle')
 const monthlyEls = document.querySelectorAll('[data-price="monthly"]')
 const yearlyEls = document.querySelectorAll('[data-price="yearly"]')
+const planLabels = document.querySelectorAll('[data-plan-label]')
+
+function syncPlanLabels(isYearly) {
+  const active = isYearly ? 'yearly' : 'monthly'
+  planLabels.forEach(el => {
+    const on = el.dataset.planLabel === active
+    el.classList.toggle('text-white', on)
+    el.classList.toggle('text-fluxy-muted', !on)
+  })
+}
 
 if (toggle) {
+  syncPlanLabels(toggle.classList.contains('active'))
+
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active')
     const isYearly = toggle.classList.contains('active')
     monthlyEls.forEach(el => el.classList.toggle('hidden', isYearly))
     yearlyEls.forEach(el => el.classList.toggle('hidden', !isYearly))
+    syncPlanLabels(isYearly)
   })
 }
 
