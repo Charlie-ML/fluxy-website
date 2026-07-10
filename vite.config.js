@@ -10,6 +10,7 @@ export default defineConfig({
         privacy: 'privacy.html',
         terms: 'terms.html',
         support: 'support.html',
+        join: 'join.html',
       },
     },
   },

@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["UMA7SP5KYD.com.charliesabin.Fluxy"],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Fluxy Codes — opens the redeem sheet pre-filled with the code"
+          },
+          {
+            "/": "/challenge/*",
+            "comment": "Reserved for challenge-a-friend links (not yet handled in-app)"
+          }
+        ]
+      }
+    ]
+  }
+}
