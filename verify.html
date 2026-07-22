@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify your email · Fluxy</title>
+  <meta name="description" content="Confirm your email address for your Fluxy account." />
+  <meta name="robots" content="noindex" />
+
+  <meta name="theme-color" content="#262624" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Noise texture -->
+  <div class="noise-overlay"></div>
+
+  <!-- Ambient background blobs -->
+  <div class="ambient-bg">
+    <div class="ambient-blob-gold"></div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-fluxy-bg/80 backdrop-blur-xl border-b border-fluxy-border-light">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/fluxy_logo.jpg" alt="Fluxy" class="w-8 h-8 rounded-lg shadow-sm" />
+        <span class="text-fluxy-heading font-bold text-lg tracking-tight">Fluxy</span>
+      </a>
+      <a href="/" class="text-fluxy-text hover:text-fluxy-heading transition-colors text-sm font-medium flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="max-w-3xl mx-auto px-6 pt-28 pb-20 text-center relative z-10">
+
+    <p class="text-fluxy-gold-dim font-semibold text-sm uppercase tracking-wider mb-3">Email verification</p>
+
+    <!-- Working state -->
+    <section id="state-working" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Verifying your email…</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed">One moment.</p>
+    </section>
+
+    <!-- Success -->
+    <section id="state-success" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Your email is verified&nbsp;✓</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">All done. Head back to the Fluxy app and tap <span class="text-fluxy-heading font-semibold">Continue</span> to finish creating your account.</p>
+    </section>
+
+    <!-- Already used: almost always means a mail scanner verified it first -->
+    <section id="state-already" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">You're most likely already verified&nbsp;✓</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-6">This link has already been opened. School and work email systems often open links automatically to scan them, and that completes the verification for you.</p>
+      <div class="glass-card rounded-2xl px-8 py-7 max-w-md mx-auto mb-6 text-left">
+        <ol class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-fluxy-gold text-fluxy-surface font-bold text-sm flex items-center justify-center shrink-0">1</span>
+            <span class="text-fluxy-text text-sm leading-relaxed pt-0.5">Open the Fluxy app and tap <span class="text-fluxy-heading font-semibold">Continue</span>. It will almost certainly go through.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-fluxy-gold text-fluxy-surface font-bold text-sm flex items-center justify-center shrink-0">2</span>
+            <span class="text-fluxy-text text-sm leading-relaxed pt-0.5">If the app says you're not verified yet, tap <span class="text-fluxy-heading font-semibold">Resend Email</span> and use the link in the newest email.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Expired -->
+    <section id="state-expired" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">This link has expired</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">Verification links last 24 hours. Open the Fluxy app, tap <span class="text-fluxy-heading font-semibold">Resend Email</span>, and use the link in the newest email.</p>
+    </section>
+
+    <!-- Malformed link -->
+    <section id="state-invalid" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">This link is incomplete</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">Open the newest email from Fluxy and tap its button, or open the Fluxy app and tap <span class="text-fluxy-heading font-semibold">Resend Email</span>.</p>
+    </section>
+
+    <!-- Network error -->
+    <section id="state-error" class="hidden">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Couldn't reach the server</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">Check your connection and reload this page.</p>
+    </section>
+
+    <noscript>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-fluxy-heading tracking-tight mb-5">Verify your email</h1>
+      <p class="text-fluxy-text text-lg max-w-lg mx-auto leading-relaxed mb-10">This page needs JavaScript to confirm your email. Enable JavaScript and reload, or open the Fluxy app and tap Continue. If that doesn't work, tap Resend Email in the app.</p>
+    </noscript>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-fluxy-border-light py-10 px-6 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-fluxy-muted text-sm">&copy; 2026 Charlie Sabin. Built with precision.</p>
+      <div class="flex gap-6">
+        <a href="/privacy" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Privacy Policy</a>
+        <a href="/terms" class="text-fluxy-muted hover:text-fluxy-text text-sm transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/verify.js"></script>
+</body>
+</html>

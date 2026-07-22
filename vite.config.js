@@ -11,6 +11,7 @@ export default defineConfig({
         terms: 'terms.html',
         support: 'support.html',
         join: 'join.html',
+        verify: 'verify.html',
       },
     },
   },
